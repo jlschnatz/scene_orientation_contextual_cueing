@@ -2,8 +2,10 @@
 
 ## MIT License
 
-All code included in this repository is made available under the
+All code included in this repository (except data and code in the [experiment_setup][experiment_setup] subfolder) is made available under the
 [OSI][osi]-approved [MIT license][mit-license].
+
+For further information on the license of the *experiment_setup* code and data, please refer to the  license in the according subfolder.
 
 Copyright (c) 2022 Jan Luca Schnatz
 
@@ -72,3 +74,4 @@ Notices:
   [cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
   [mit-license]: https://opensource.org/licenses/mit-license.html
   [osi]: https://opensource.org
+  [experiment_setup]: https://github.com/jlschnatz/scene_orientation_repetition_priming/tree/main/experiment_setup
