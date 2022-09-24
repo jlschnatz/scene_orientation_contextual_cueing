@@ -1,0 +1,1307 @@
+0.6222 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['sounddevice', 'PTB', 'pyo', 'pygame'] (in that order).
+13.7447 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, autoLog=True, backendConf=UNKNOWN, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0, 0, 0]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x7fcced2f4828>, gamma=None, gammaErrorPolicy='raise', lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x7fcd49422f28>, multiSample=False, name='window1', numSamples=2, pos=[360.0, 225.0], screen=0, size=array([2880, 1800]), stencilBits=0, stereo=False, units='height', useFBO=True, useRetina=True, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+13.7450 	EXP 	window1: mouseVisible = True
+13.7451 	EXP 	window1: recordFrameIntervals = False
+13.9105 	EXP 	window1: recordFrameIntervals = True
+14.0951 	EXP 	window1: recordFrameIntervals = False
+14.8037 	EXP 	Created instr_text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.035, italic=False, languageStyle='LTR', name='instr_text', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+14.9896 	EXP 	Created stimulus_text_01 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.035, italic=False, languageStyle='LTR', name='stimulus_text_01', opacity=1, ori=0.0, pos=array([0.  , 0.15]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+14.9948 	EXP 	Created stimulus_text_02 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.035, italic=False, languageStyle='LTR', name='stimulus_text_02', opacity=1, ori=0.0, pos=array([ 0. , -0.2]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+15.1818 	EXP 	Created text_3 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-3.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.04, italic=False, languageStyle='LTR', name='text_3', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='T', units='height', win=Window(...), wrapWidth=1)
+15.1882 	EXP 	Created text_2 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.04, italic=False, languageStyle='LTR', name='text_2', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Press „space“ for starting the experiment', units='height', win=Window(...), wrapWidth=1)
+15.3799 	EXP 	Created text_cross = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='text_cross', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='+', units='height', win=Window(...), wrapWidth=1)
+15.5682 	EXP 	window1: mouseVisible = True
+15.5765 	EXP 	Created text_cross_space = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-3.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.035, italic=False, languageStyle='LTR', name='text_cross_space', opacity=1, ori=0.0, pos=array([ 0. , -0.2]), rgb=UNKNOWN, text='Press „space“ when ready', units='height', win=Window(...), wrapWidth=1)
+15.5791 	EXP 	Created stimulus = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=-1.0, fillColor=array([1, 1, 1]), fillColorSpace='rgb', fillRGB=array([1, 1, 1]), interpolate=True, lineColor=array([1., 1., 1.]), lineColorSpace='rgb', lineRGB=array([1, 1, 1]), lineWidth=1.0, name='stimulus', opacity=1, ori=0.0, pos=array([0., 0.]), size=array([0.04, 0.04]), units='height', vertices=ndarray(...), win=Window(...))
+15.5834 	EXP 	Created image_scene = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='image_scene', opacity=1, ori=1.0, pos=array([0., 0.]), size=array([1.5, 1. ]), texRes=128.0, units='height', win=Window(...))
+15.5835 	EXP 	window1: mouseVisible = True
+15.5862 	EXP 	Created target_letter = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([0.00392157, 0.00392157, 0.00392157]), colorSpace='rgb', contrast=1.0, depth=-4.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.04, italic=False, languageStyle='LTR', name='target_letter', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='T', units='height', win=Window(...), wrapWidth=1)
+15.5982 	EXP 	Created debr_text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.035, italic=False, languageStyle='LTR', name='debr_text', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+15.7943 	EXP 	instr_text: autoDraw = True
+24.3407 	DATA 	Keypress: space
+24.3459 	EXP 	instr_text: autoDraw = False
+24.3459 	EXP 	stimulus_text_01: autoDraw = True
+24.3459 	EXP 	stimulus_text_02: autoDraw = True
+24.3459 	EXP 	text_3: autoDraw = True
+33.9403 	EXP 	Imported block_number.xlsx as conditions, 2 conditions, 1 params
+33.9411 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+33.9416 	EXP 	New trial (rep=0, index=0): {'BlockNumber': 1}
+33.9525 	DATA 	Keypress: space
+33.9567 	EXP 	stimulus_text_01: autoDraw = False
+33.9567 	EXP 	stimulus_text_02: autoDraw = False
+33.9567 	EXP 	text_3: autoDraw = False
+33.9567 	EXP 	text_2: autoDraw = True
+36.1845 	EXP 	Imported condition_participant/ConditionFile_Mirror_Block1_2.xlsx as conditions, 40 conditions, 4 params
+36.1857 	EXP 	Created sequence: random, trialTypes=40, nReps=1, seed=None
+36.1862 	EXP 	New trial (rep=0, index=0): {'TrialType': 'mirrored', 'FileName': 'Bathroom_3', 'Xcoord': 0.6902131574918087, 'Ycoord': -0.016148810751422604}
+36.1955 	DATA 	Keypress: space
+36.1999 	EXP 	text_2: autoDraw = False
+36.1999 	EXP 	text_cross: autoDraw = True
+36.1999 	EXP 	text_cross_space: autoDraw = True
+39.2407 	DATA 	Keypress: space
+39.2892 	EXP 	text_cross: autoDraw = False
+39.2892 	EXP 	text_cross_space: autoDraw = False
+39.2892 	EXP 	stimulus: pos = array([ 0.69021316, -0.01614881])
+39.2892 	EXP 	image_scene: ori = 0.0
+39.2892 	EXP 	image_scene: image = 'raw_scenes/Bathroom_3.png'
+39.2892 	EXP 	target_letter: pos = array([ 0.69021316, -0.01614881])
+39.2892 	EXP 	stimulus: autoDraw = True
+39.2892 	EXP 	image_scene: autoDraw = True
+39.2892 	EXP 	target_letter: autoDraw = True
+45.1629 	DATA 	Mouse: Left button down, pos=(1337,443)
+45.1659 	EXP 	New trial (rep=0, index=1): {'TrialType': 'new', 'FileName': 'Bathroom_4', 'Xcoord': -0.6781134469053953, 'Ycoord': -0.3035409383084682}
+45.1784 	EXP 	stimulus: autoDraw = False
+45.1784 	EXP 	image_scene: autoDraw = False
+45.1784 	EXP 	target_letter: autoDraw = False
+45.1784 	EXP 	text_cross: autoDraw = True
+45.1784 	EXP 	text_cross_space: autoDraw = True
+45.3656 	DATA 	Mouse:  Left button up, pos=(720,450)
+48.3936 	DATA 	Keypress: space
+48.4273 	EXP 	text_cross: autoDraw = False
+48.4273 	EXP 	text_cross_space: autoDraw = False
+48.4273 	EXP 	stimulus: pos = array([-0.67811345, -0.30354094])
+48.4273 	EXP 	image_scene: ori = 0.0
+48.4273 	EXP 	image_scene: image = 'raw_scenes/Bathroom_4.png'
+48.4273 	EXP 	target_letter: pos = array([-0.67811345, -0.30354094])
+48.4273 	EXP 	stimulus: autoDraw = True
+48.4273 	EXP 	image_scene: autoDraw = True
+48.4273 	EXP 	target_letter: autoDraw = True
+57.9129 	DATA 	Mouse: Left button down, pos=(111,184)
+57.9146 	EXP 	New trial (rep=0, index=2): {'TrialType': 'mirrored', 'FileName': 'Bathroom_5', 'Xcoord': -0.6380572275326534, 'Ycoord': 0.3658732872045367}
+57.9294 	EXP 	stimulus: autoDraw = False
+57.9294 	EXP 	image_scene: autoDraw = False
+57.9294 	EXP 	target_letter: autoDraw = False
+57.9294 	EXP 	text_cross: autoDraw = True
+57.9294 	EXP 	text_cross_space: autoDraw = True
+58.1316 	DATA 	Mouse:  Left button up, pos=(720,450)
+59.3990 	DATA 	Mouse: Left button down, pos=(727,451)
+59.4649 	DATA 	Mouse:  Left button up, pos=(727,451)
+60.6984 	DATA 	Keypress: space
+60.7336 	EXP 	text_cross: autoDraw = False
+60.7336 	EXP 	text_cross_space: autoDraw = False
+60.7336 	EXP 	stimulus: pos = array([-0.63805723,  0.36587329])
+60.7336 	EXP 	image_scene: ori = 0.0
+60.7336 	EXP 	image_scene: image = 'raw_scenes/Bathroom_5.png'
+60.7336 	EXP 	target_letter: pos = array([-0.63805723,  0.36587329])
+60.7336 	EXP 	stimulus: autoDraw = True
+60.7336 	EXP 	image_scene: autoDraw = True
+60.7336 	EXP 	target_letter: autoDraw = True
+75.2629 	EXP 	New trial (rep=0, index=3): {'TrialType': 'original', 'FileName': 'Bedroom_10', 'Xcoord': -0.19595916913992273, 'Ycoord': 0.015254393557601609}
+75.2797 	EXP 	stimulus: autoDraw = False
+75.2797 	EXP 	image_scene: autoDraw = False
+75.2797 	EXP 	target_letter: autoDraw = False
+75.2797 	EXP 	text_cross: autoDraw = True
+75.2797 	EXP 	text_cross_space: autoDraw = True
+78.9495 	DATA 	Keypress: space
+78.9833 	EXP 	text_cross: autoDraw = False
+78.9833 	EXP 	text_cross_space: autoDraw = False
+78.9833 	EXP 	stimulus: pos = array([-0.19595917,  0.01525439])
+78.9833 	EXP 	image_scene: ori = 0.0
+78.9833 	EXP 	image_scene: image = 'raw_scenes/Bedroom_10.png'
+78.9833 	EXP 	target_letter: pos = array([-0.19595917,  0.01525439])
+78.9833 	EXP 	stimulus: autoDraw = True
+78.9833 	EXP 	image_scene: autoDraw = True
+78.9833 	EXP 	target_letter: autoDraw = True
+80.7965 	DATA 	Mouse: Left button down, pos=(551,465)
+80.7984 	EXP 	New trial (rep=0, index=4): {'TrialType': 'original', 'FileName': 'Office_7', 'Xcoord': -0.5290202343245594, 'Ycoord': 0.3679560584483372}
+80.8123 	EXP 	stimulus: autoDraw = False
+80.8123 	EXP 	image_scene: autoDraw = False
+80.8123 	EXP 	target_letter: autoDraw = False
+80.8123 	EXP 	text_cross: autoDraw = True
+80.8123 	EXP 	text_cross_space: autoDraw = True
+80.9991 	DATA 	Mouse:  Left button up, pos=(720,450)
+83.1667 	DATA 	Keypress: space
+83.2011 	EXP 	text_cross: autoDraw = False
+83.2011 	EXP 	text_cross_space: autoDraw = False
+83.2011 	EXP 	stimulus: pos = array([-0.52902023,  0.36795606])
+83.2011 	EXP 	image_scene: ori = 0.0
+83.2011 	EXP 	image_scene: image = 'raw_scenes/Office_7.png'
+83.2011 	EXP 	target_letter: pos = array([-0.52902023,  0.36795606])
+83.2011 	EXP 	stimulus: autoDraw = True
+83.2011 	EXP 	image_scene: autoDraw = True
+83.2011 	EXP 	target_letter: autoDraw = True
+85.7660 	DATA 	Mouse: Left button down, pos=(244,785)
+85.7811 	EXP 	New trial (rep=0, index=5): {'TrialType': 'original', 'FileName': 'Kitchen_2', 'Xcoord': -0.35779162698232614, 'Ycoord': -0.25299261780930415}
+85.7969 	EXP 	stimulus: autoDraw = False
+85.7969 	EXP 	image_scene: autoDraw = False
+85.7969 	EXP 	target_letter: autoDraw = False
+85.7969 	EXP 	text_cross: autoDraw = True
+85.7969 	EXP 	text_cross_space: autoDraw = True
+85.9329 	DATA 	Mouse:  Left button up, pos=(720,450)
+87.4224 	DATA 	Keypress: space
+87.4563 	EXP 	text_cross: autoDraw = False
+87.4563 	EXP 	text_cross_space: autoDraw = False
+87.4563 	EXP 	stimulus: pos = array([-0.35779163, -0.25299262])
+87.4563 	EXP 	image_scene: ori = 0.0
+87.4563 	EXP 	image_scene: image = 'raw_scenes/Kitchen_2.png'
+87.4563 	EXP 	target_letter: pos = array([-0.35779163, -0.25299262])
+87.4563 	EXP 	stimulus: autoDraw = True
+87.4563 	EXP 	image_scene: autoDraw = True
+87.4563 	EXP 	target_letter: autoDraw = True
+90.8636 	DATA 	Mouse: Left button down, pos=(400,225)
+90.8653 	EXP 	New trial (rep=0, index=6): {'TrialType': 'new', 'FileName': 'Office_4', 'Xcoord': 0.2178326944738077, 'Ycoord': -0.24439409616448893}
+90.8803 	EXP 	stimulus: autoDraw = False
+90.8803 	EXP 	image_scene: autoDraw = False
+90.8803 	EXP 	target_letter: autoDraw = False
+90.8803 	EXP 	text_cross: autoDraw = True
+90.8803 	EXP 	text_cross_space: autoDraw = True
+91.0657 	DATA 	Mouse:  Left button up, pos=(720,450)
+92.3043 	DATA 	Keypress: space
+92.3386 	EXP 	text_cross: autoDraw = False
+92.3386 	EXP 	text_cross_space: autoDraw = False
+92.3386 	EXP 	stimulus: pos = array([ 0.21783269, -0.2443941 ])
+92.3386 	EXP 	image_scene: ori = 0.0
+92.3386 	EXP 	image_scene: image = 'raw_scenes/Office_4.png'
+92.3386 	EXP 	target_letter: pos = array([ 0.21783269, -0.2443941 ])
+92.3386 	EXP 	stimulus: autoDraw = True
+92.3386 	EXP 	image_scene: autoDraw = True
+92.3386 	EXP 	target_letter: autoDraw = True
+97.4807 	DATA 	Mouse: Left button down, pos=(918,228)
+97.4824 	EXP 	New trial (rep=0, index=7): {'TrialType': 'original', 'FileName': 'Bedroom_9', 'Xcoord': 0.27082633802435085, 'Ycoord': 0.31115801474273225}
+97.4974 	EXP 	stimulus: autoDraw = False
+97.4974 	EXP 	image_scene: autoDraw = False
+97.4974 	EXP 	target_letter: autoDraw = False
+97.4974 	EXP 	text_cross: autoDraw = True
+97.4974 	EXP 	text_cross_space: autoDraw = True
+97.6998 	DATA 	Mouse:  Left button up, pos=(720,450)
+98.8527 	DATA 	Keypress: space
+98.8866 	EXP 	text_cross: autoDraw = False
+98.8866 	EXP 	text_cross_space: autoDraw = False
+98.8866 	EXP 	stimulus: pos = array([0.27082634, 0.31115801])
+98.8866 	EXP 	image_scene: ori = 0.0
+98.8866 	EXP 	image_scene: image = 'raw_scenes/Bedroom_9.png'
+98.8866 	EXP 	target_letter: pos = array([0.27082634, 0.31115801])
+98.8866 	EXP 	stimulus: autoDraw = True
+98.8866 	EXP 	image_scene: autoDraw = True
+98.8866 	EXP 	target_letter: autoDraw = True
+103.0474 	DATA 	Mouse: Left button down, pos=(955,731)
+103.0495 	EXP 	New trial (rep=0, index=8): {'TrialType': 'original', 'FileName': 'Bathroom_2', 'Xcoord': 0.3656614104487188, 'Ycoord': -0.3642648022623469}
+103.0635 	EXP 	stimulus: autoDraw = False
+103.0635 	EXP 	image_scene: autoDraw = False
+103.0635 	EXP 	target_letter: autoDraw = False
+103.0635 	EXP 	text_cross: autoDraw = True
+103.0635 	EXP 	text_cross_space: autoDraw = True
+103.2331 	DATA 	Mouse:  Left button up, pos=(720,450)
+104.1848 	DATA 	Keypress: space
+104.6274 	EXP 	text_cross: autoDraw = False
+104.6274 	EXP 	text_cross_space: autoDraw = False
+104.6274 	EXP 	stimulus: pos = array([ 0.36566141, -0.3642648 ])
+104.6274 	EXP 	image_scene: ori = 0.0
+104.6274 	EXP 	image_scene: image = 'raw_scenes/Bathroom_2.png'
+104.6274 	EXP 	target_letter: pos = array([ 0.36566141, -0.3642648 ])
+104.6274 	EXP 	stimulus: autoDraw = True
+104.6274 	EXP 	image_scene: autoDraw = True
+104.6274 	EXP 	target_letter: autoDraw = True
+108.2638 	DATA 	Mouse: Left button down, pos=(1042,129)
+108.2659 	EXP 	New trial (rep=0, index=9): {'TrialType': None, 'FileName': None, 'Xcoord': None, 'Ycoord': None}
+108.2801 	EXP 	stimulus: autoDraw = False
+108.2801 	EXP 	image_scene: autoDraw = False
+108.2801 	EXP 	target_letter: autoDraw = False
+108.2801 	EXP 	text_cross: autoDraw = True
+108.2801 	EXP 	text_cross_space: autoDraw = True
+108.5001 	DATA 	Mouse:  Left button up, pos=(720,450)
+109.6339 	EXP 	New trial (rep=0, index=10): {'TrialType': 'mirrored', 'FileName': 'Bathroom_6', 'Xcoord': 0.5380791815848759, 'Ycoord': -0.3119818890817943}
+109.6367 	DATA 	Keypress: space
+109.6410 	EXP 	text_cross: autoDraw = False
+109.6410 	EXP 	text_cross_space: autoDraw = False
+109.6410 	EXP 	stimulus: pos = array([nan, nan])
+109.6410 	EXP 	image_scene: ori = 0.0
+109.6410 	EXP 	image_scene: image = 'raw_scenes/Bathroom_2.png'
+109.6410 	EXP 	target_letter: pos = array([nan, nan])
+109.6410 	EXP 	stimulus: autoDraw = False
+109.6410 	EXP 	image_scene: autoDraw = False
+109.6410 	EXP 	target_letter: autoDraw = False
+109.6410 	EXP 	text_cross: autoDraw = True
+109.6410 	EXP 	text_cross_space: autoDraw = True
+114.1180 	DATA 	Keypress: space
+114.5840 	EXP 	text_cross: autoDraw = False
+114.5840 	EXP 	text_cross_space: autoDraw = False
+114.5840 	EXP 	stimulus: pos = array([ 0.53807918, -0.31198189])
+114.5840 	EXP 	image_scene: ori = 0.0
+114.5840 	EXP 	image_scene: image = 'raw_scenes/Bathroom_6.png'
+114.5840 	EXP 	target_letter: pos = array([ 0.53807918, -0.31198189])
+114.5840 	EXP 	stimulus: autoDraw = True
+114.5840 	EXP 	image_scene: autoDraw = True
+114.5840 	EXP 	target_letter: autoDraw = True
+129.1479 	EXP 	New trial (rep=0, index=11): {'TrialType': 'new', 'FileName': 'Office_8', 'Xcoord': -0.5001710542340352, 'Ycoord': -0.3749098143621699}
+129.1639 	EXP 	stimulus: autoDraw = False
+129.1639 	EXP 	image_scene: autoDraw = False
+129.1639 	EXP 	target_letter: autoDraw = False
+129.1639 	EXP 	text_cross: autoDraw = True
+129.1639 	EXP 	text_cross_space: autoDraw = True
+130.5114 	DATA 	Keypress: space
+130.5449 	EXP 	text_cross: autoDraw = False
+130.5449 	EXP 	text_cross_space: autoDraw = False
+130.5449 	EXP 	stimulus: pos = array([-0.50017105, -0.37490981])
+130.5449 	EXP 	image_scene: ori = 0.0
+130.5449 	EXP 	image_scene: image = 'raw_scenes/Office_8.png'
+130.5449 	EXP 	target_letter: pos = array([-0.50017105, -0.37490981])
+130.5449 	EXP 	stimulus: autoDraw = True
+130.5449 	EXP 	image_scene: autoDraw = True
+130.5449 	EXP 	target_letter: autoDraw = True
+136.0820 	DATA 	Mouse: Left button down, pos=(267,117)
+136.0841 	EXP 	New trial (rep=0, index=12): {'TrialType': 'original', 'FileName': 'Bedroom_5', 'Xcoord': 0.6120571577404286, 'Ycoord': 0.21869780057042887}
+136.0976 	EXP 	stimulus: autoDraw = False
+136.0976 	EXP 	image_scene: autoDraw = False
+136.0976 	EXP 	target_letter: autoDraw = False
+136.0976 	EXP 	text_cross: autoDraw = True
+136.0976 	EXP 	text_cross_space: autoDraw = True
+136.3001 	DATA 	Mouse:  Left button up, pos=(720,450)
+137.7556 	DATA 	Keypress: space
+137.7892 	EXP 	text_cross: autoDraw = False
+137.7892 	EXP 	text_cross_space: autoDraw = False
+137.7892 	EXP 	stimulus: pos = array([0.61205716, 0.2186978 ])
+137.7892 	EXP 	image_scene: ori = 0.0
+137.7892 	EXP 	image_scene: image = 'raw_scenes/Bedroom_5.png'
+137.7892 	EXP 	target_letter: pos = array([0.61205716, 0.2186978 ])
+137.7892 	EXP 	stimulus: autoDraw = True
+137.7892 	EXP 	image_scene: autoDraw = True
+137.7892 	EXP 	target_letter: autoDraw = True
+152.3485 	EXP 	New trial (rep=0, index=13): {'TrialType': 'new', 'FileName': 'Office_9', 'Xcoord': 0.447446861385833, 'Ycoord': -0.17240259060017005}
+152.3651 	EXP 	stimulus: autoDraw = False
+152.3651 	EXP 	image_scene: autoDraw = False
+152.3651 	EXP 	target_letter: autoDraw = False
+152.3651 	EXP 	text_cross: autoDraw = True
+152.3651 	EXP 	text_cross_space: autoDraw = True
+153.8089 	DATA 	Keypress: space
+153.8427 	EXP 	text_cross: autoDraw = False
+153.8427 	EXP 	text_cross_space: autoDraw = False
+153.8427 	EXP 	stimulus: pos = array([ 0.44744686, -0.17240259])
+153.8427 	EXP 	image_scene: ori = 0.0
+153.8427 	EXP 	image_scene: image = 'raw_scenes/Office_9.png'
+153.8427 	EXP 	target_letter: pos = array([ 0.44744686, -0.17240259])
+153.8427 	EXP 	stimulus: autoDraw = True
+153.8427 	EXP 	image_scene: autoDraw = True
+153.8427 	EXP 	target_letter: autoDraw = True
+162.3174 	DATA 	Mouse: Left button down, pos=(1120,296)
+162.3327 	EXP 	New trial (rep=0, index=14): {'TrialType': None, 'FileName': None, 'Xcoord': None, 'Ycoord': None}
+162.3483 	EXP 	stimulus: autoDraw = False
+162.3483 	EXP 	image_scene: autoDraw = False
+162.3483 	EXP 	target_letter: autoDraw = False
+162.3483 	EXP 	text_cross: autoDraw = True
+162.3483 	EXP 	text_cross_space: autoDraw = True
+162.5010 	DATA 	Mouse:  Left button up, pos=(720,450)
+164.0539 	EXP 	New trial (rep=0, index=15): {'TrialType': 'original', 'FileName': 'Kitchen_6', 'Xcoord': 0.5063406658978314, 'Ycoord': -0.3605115625264501}
+164.0568 	DATA 	Keypress: space
+164.0613 	EXP 	text_cross: autoDraw = False
+164.0613 	EXP 	text_cross_space: autoDraw = False
+164.0613 	EXP 	stimulus: pos = array([nan, nan])
+164.0613 	EXP 	image_scene: ori = 0.0
+164.0613 	EXP 	image_scene: image = 'raw_scenes/Office_9.png'
+164.0613 	EXP 	target_letter: pos = array([nan, nan])
+164.0613 	EXP 	stimulus: autoDraw = False
+164.0613 	EXP 	image_scene: autoDraw = False
+164.0613 	EXP 	target_letter: autoDraw = False
+164.0613 	EXP 	text_cross: autoDraw = True
+164.0613 	EXP 	text_cross_space: autoDraw = True
+165.4849 	DATA 	Keypress: space
+165.5185 	EXP 	text_cross: autoDraw = False
+165.5185 	EXP 	text_cross_space: autoDraw = False
+165.5185 	EXP 	stimulus: pos = array([ 0.50634067, -0.36051156])
+165.5185 	EXP 	image_scene: ori = 0.0
+165.5185 	EXP 	image_scene: image = 'raw_scenes/Kitchen_6.png'
+165.5185 	EXP 	target_letter: pos = array([ 0.50634067, -0.36051156])
+165.5185 	EXP 	stimulus: autoDraw = True
+165.5185 	EXP 	image_scene: autoDraw = True
+165.5185 	EXP 	target_letter: autoDraw = True
+168.4154 	DATA 	Mouse: Left button down, pos=(1170,131)
+168.4172 	EXP 	New trial (rep=0, index=16): {'TrialType': None, 'FileName': None, 'Xcoord': None, 'Ycoord': None}
+168.4320 	EXP 	stimulus: autoDraw = False
+168.4320 	EXP 	image_scene: autoDraw = False
+168.4320 	EXP 	target_letter: autoDraw = False
+168.4320 	EXP 	text_cross: autoDraw = True
+168.4320 	EXP 	text_cross_space: autoDraw = True
+168.6512 	DATA 	Mouse:  Left button up, pos=(720,450)
+170.1007 	EXP 	New trial (rep=0, index=17): {'TrialType': 'new', 'FileName': 'Bedroom_1', 'Xcoord': 0.17712282744047048, 'Ycoord': -0.0643515560636832}
+170.1034 	DATA 	Keypress: space
+170.1076 	EXP 	text_cross: autoDraw = False
+170.1076 	EXP 	text_cross_space: autoDraw = False
+170.1076 	EXP 	stimulus: pos = array([nan, nan])
+170.1076 	EXP 	image_scene: ori = 0.0
+170.1076 	EXP 	image_scene: image = 'raw_scenes/Kitchen_6.png'
+170.1076 	EXP 	target_letter: pos = array([nan, nan])
+170.1076 	EXP 	stimulus: autoDraw = False
+170.1076 	EXP 	image_scene: autoDraw = False
+170.1076 	EXP 	target_letter: autoDraw = False
+170.1076 	EXP 	text_cross: autoDraw = True
+170.1076 	EXP 	text_cross_space: autoDraw = True
+172.3936 	DATA 	Keypress: space
+172.4278 	EXP 	text_cross: autoDraw = False
+172.4278 	EXP 	text_cross_space: autoDraw = False
+172.4278 	EXP 	stimulus: pos = array([ 0.17712283, -0.06435156])
+172.4278 	EXP 	image_scene: ori = 0.0
+172.4278 	EXP 	image_scene: image = 'raw_scenes/Bedroom_1.png'
+172.4278 	EXP 	target_letter: pos = array([ 0.17712283, -0.06435156])
+172.4278 	EXP 	stimulus: autoDraw = True
+172.4278 	EXP 	image_scene: autoDraw = True
+172.4278 	EXP 	target_letter: autoDraw = True
+178.3492 	DATA 	Mouse: Left button down, pos=(880,394)
+178.3512 	EXP 	New trial (rep=0, index=18): {'TrialType': None, 'FileName': None, 'Xcoord': None, 'Ycoord': None}
+178.3642 	EXP 	stimulus: autoDraw = False
+178.3642 	EXP 	image_scene: autoDraw = False
+178.3642 	EXP 	target_letter: autoDraw = False
+178.3642 	EXP 	text_cross: autoDraw = True
+178.3642 	EXP 	text_cross_space: autoDraw = True
+178.5683 	DATA 	Mouse:  Left button up, pos=(720,450)
+180.2470 	EXP 	New trial (rep=0, index=19): {'TrialType': 'original', 'FileName': 'Kitchen_8', 'Xcoord': -0.5983202333638026, 'Ycoord': 0.34827453306268374}
+180.2498 	DATA 	Keypress: space
+180.2543 	EXP 	text_cross: autoDraw = False
+180.2543 	EXP 	text_cross_space: autoDraw = False
+180.2543 	EXP 	stimulus: pos = array([nan, nan])
+180.2543 	EXP 	image_scene: ori = 0.0
+180.2543 	EXP 	image_scene: image = 'raw_scenes/Bedroom_1.png'
+180.2543 	EXP 	target_letter: pos = array([nan, nan])
+180.2543 	EXP 	stimulus: autoDraw = False
+180.2543 	EXP 	image_scene: autoDraw = False
+180.2543 	EXP 	target_letter: autoDraw = False
+180.2543 	EXP 	text_cross: autoDraw = True
+180.2543 	EXP 	text_cross_space: autoDraw = True
+181.8363 	DATA 	Keypress: space
+181.8701 	EXP 	text_cross: autoDraw = False
+181.8701 	EXP 	text_cross_space: autoDraw = False
+181.8701 	EXP 	stimulus: pos = array([-0.59832023,  0.34827453])
+181.8701 	EXP 	image_scene: ori = 0.0
+181.8701 	EXP 	image_scene: image = 'raw_scenes/Kitchen_8.png'
+181.8701 	EXP 	target_letter: pos = array([-0.59832023,  0.34827453])
+181.8701 	EXP 	stimulus: autoDraw = True
+181.8701 	EXP 	image_scene: autoDraw = True
+181.8701 	EXP 	target_letter: autoDraw = True
+189.7660 	DATA 	Mouse: Left button down, pos=(185,767)
+189.7678 	EXP 	New trial (rep=0, index=20): {'TrialType': 'mirrored', 'FileName': 'Office_1', 'Xcoord': 0.19335856309052968, 'Ycoord': 0.02148845863843174}
+189.7829 	EXP 	stimulus: autoDraw = False
+189.7829 	EXP 	image_scene: autoDraw = False
+189.7829 	EXP 	target_letter: autoDraw = False
+189.7829 	EXP 	text_cross: autoDraw = True
+189.7829 	EXP 	text_cross_space: autoDraw = True
+189.9684 	DATA 	Mouse:  Left button up, pos=(720,450)
+190.9497 	DATA 	Keypress: space
+190.9719 	EXP 	text_cross: autoDraw = False
+190.9719 	EXP 	text_cross_space: autoDraw = False
+190.9719 	EXP 	stimulus: pos = array([0.19335856, 0.02148846])
+190.9719 	EXP 	image_scene: ori = 0.0
+190.9719 	EXP 	image_scene: image = 'raw_scenes/Office_1.png'
+190.9719 	EXP 	target_letter: pos = array([0.19335856, 0.02148846])
+190.9719 	EXP 	stimulus: autoDraw = True
+190.9719 	EXP 	image_scene: autoDraw = True
+190.9719 	EXP 	target_letter: autoDraw = True
+191.0662 	DATA 	Keypress: space
+205.5661 	EXP 	New trial (rep=0, index=21): {'TrialType': 'original', 'FileName': 'Kitchen_5', 'Xcoord': 0.059371041287149984, 'Ycoord': -0.23290413077113362}
+205.5824 	EXP 	stimulus: autoDraw = False
+205.5824 	EXP 	image_scene: autoDraw = False
+205.5824 	EXP 	target_letter: autoDraw = False
+205.5824 	EXP 	text_cross: autoDraw = True
+205.5824 	EXP 	text_cross_space: autoDraw = True
+207.2053 	DATA 	Keypress: space
+207.2393 	EXP 	text_cross: autoDraw = False
+207.2393 	EXP 	text_cross_space: autoDraw = False
+207.2393 	EXP 	stimulus: pos = array([ 0.05937104, -0.23290413])
+207.2393 	EXP 	image_scene: ori = 0.0
+207.2393 	EXP 	image_scene: image = 'raw_scenes/Kitchen_5.png'
+207.2393 	EXP 	target_letter: pos = array([ 0.05937104, -0.23290413])
+207.2393 	EXP 	stimulus: autoDraw = True
+207.2393 	EXP 	image_scene: autoDraw = True
+207.2393 	EXP 	target_letter: autoDraw = True
+221.8168 	EXP 	New trial (rep=0, index=22): {'TrialType': 'new', 'FileName': 'Bedroom_4', 'Xcoord': -0.6841739686880649, 'Ycoord': -0.37899633463348387}
+221.8335 	EXP 	stimulus: autoDraw = False
+221.8335 	EXP 	image_scene: autoDraw = False
+221.8335 	EXP 	target_letter: autoDraw = False
+221.8335 	EXP 	text_cross: autoDraw = True
+221.8335 	EXP 	text_cross_space: autoDraw = True
+223.5102 	DATA 	Keypress: space
+223.5445 	EXP 	text_cross: autoDraw = False
+223.5445 	EXP 	text_cross_space: autoDraw = False
+223.5445 	EXP 	stimulus: pos = array([-0.68417397, -0.37899633])
+223.5445 	EXP 	image_scene: ori = 0.0
+223.5445 	EXP 	image_scene: image = 'raw_scenes/Bedroom_4.png'
+223.5445 	EXP 	target_letter: pos = array([-0.68417397, -0.37899633])
+223.5445 	EXP 	stimulus: autoDraw = True
+223.5445 	EXP 	image_scene: autoDraw = True
+223.5445 	EXP 	target_letter: autoDraw = True
+226.4670 	DATA 	Mouse: Left button down, pos=(101,105)
+226.4688 	EXP 	New trial (rep=0, index=23): {'TrialType': 'new', 'FileName': 'Bathroom_10', 'Xcoord': -0.5267634920810969, 'Ycoord': -0.05905093810178419}
+226.4825 	EXP 	stimulus: autoDraw = False
+226.4825 	EXP 	image_scene: autoDraw = False
+226.4825 	EXP 	target_letter: autoDraw = False
+226.4825 	EXP 	text_cross: autoDraw = True
+226.4825 	EXP 	text_cross_space: autoDraw = True
+226.6528 	DATA 	Mouse:  Left button up, pos=(720,450)
+228.0600 	DATA 	Keypress: space
+228.0939 	EXP 	text_cross: autoDraw = False
+228.0939 	EXP 	text_cross_space: autoDraw = False
+228.0939 	EXP 	stimulus: pos = array([-0.52676349, -0.05905094])
+228.0939 	EXP 	image_scene: ori = 0.0
+228.0939 	EXP 	image_scene: image = 'raw_scenes/Bathroom_10.png'
+228.0939 	EXP 	target_letter: pos = array([-0.52676349, -0.05905094])
+228.0939 	EXP 	stimulus: autoDraw = True
+228.0939 	EXP 	image_scene: autoDraw = True
+228.0939 	EXP 	target_letter: autoDraw = True
+230.1337 	DATA 	Mouse: Left button down, pos=(243,394)
+230.1355 	EXP 	New trial (rep=0, index=24): {'TrialType': None, 'FileName': None, 'Xcoord': None, 'Ycoord': None}
+230.1501 	EXP 	stimulus: autoDraw = False
+230.1501 	EXP 	image_scene: autoDraw = False
+230.1501 	EXP 	target_letter: autoDraw = False
+230.1501 	EXP 	text_cross: autoDraw = True
+230.1501 	EXP 	text_cross_space: autoDraw = True
+230.3361 	DATA 	Mouse:  Left button up, pos=(720,450)
+231.4248 	EXP 	New trial (rep=0, index=25): {'TrialType': None, 'FileName': None, 'Xcoord': None, 'Ycoord': None}
+231.4275 	DATA 	Keypress: space
+231.4319 	EXP 	text_cross: autoDraw = False
+231.4319 	EXP 	text_cross_space: autoDraw = False
+231.4319 	EXP 	stimulus: pos = array([nan, nan])
+231.4319 	EXP 	image_scene: ori = 0.0
+231.4319 	EXP 	image_scene: image = 'raw_scenes/Bathroom_10.png'
+231.4319 	EXP 	target_letter: pos = array([nan, nan])
+231.4319 	EXP 	stimulus: autoDraw = False
+231.4319 	EXP 	image_scene: autoDraw = False
+231.4319 	EXP 	target_letter: autoDraw = False
+231.4319 	EXP 	text_cross: autoDraw = True
+231.4319 	EXP 	text_cross_space: autoDraw = True
+235.1012 	EXP 	New trial (rep=0, index=26): {'TrialType': 'new', 'FileName': 'Kitchen_1', 'Xcoord': -0.5094734240339168, 'Ycoord': -0.051953488767059186}
+235.1040 	DATA 	Keypress: space
+235.1086 	EXP 	text_cross: autoDraw = False
+235.1086 	EXP 	text_cross_space: autoDraw = False
+235.1086 	EXP 	stimulus: pos = array([nan, nan])
+235.1086 	EXP 	image_scene: ori = 0.0
+235.1086 	EXP 	image_scene: image = 'raw_scenes/Bathroom_10.png'
+235.1086 	EXP 	target_letter: pos = array([nan, nan])
+235.1086 	EXP 	stimulus: autoDraw = False
+235.1086 	EXP 	image_scene: autoDraw = False
+235.1086 	EXP 	target_letter: autoDraw = False
+235.1086 	EXP 	text_cross: autoDraw = True
+235.1086 	EXP 	text_cross_space: autoDraw = True
+237.5725 	DATA 	Keypress: space
+237.6063 	EXP 	text_cross: autoDraw = False
+237.6063 	EXP 	text_cross_space: autoDraw = False
+237.6063 	EXP 	stimulus: pos = array([-0.50947342, -0.05195349])
+237.6063 	EXP 	image_scene: ori = 0.0
+237.6063 	EXP 	image_scene: image = 'raw_scenes/Kitchen_1.png'
+237.6063 	EXP 	target_letter: pos = array([-0.50947342, -0.05195349])
+237.6063 	EXP 	stimulus: autoDraw = True
+237.6063 	EXP 	image_scene: autoDraw = True
+237.6063 	EXP 	target_letter: autoDraw = True
+240.9171 	DATA 	Mouse: Left button down, pos=(256,409)
+240.9188 	EXP 	New trial (rep=0, index=27): {'TrialType': 'mirrored', 'FileName': 'Bathroom_7', 'Xcoord': -0.5118854702172839, 'Ycoord': 0.04571702855657883}
+240.9334 	EXP 	stimulus: autoDraw = False
+240.9334 	EXP 	image_scene: autoDraw = False
+240.9334 	EXP 	target_letter: autoDraw = False
+240.9334 	EXP 	text_cross: autoDraw = True
+240.9334 	EXP 	text_cross_space: autoDraw = True
+241.0364 	DATA 	Mouse:  Left button up, pos=(720,450)
+242.2407 	DATA 	Keypress: space
+242.2747 	EXP 	text_cross: autoDraw = False
+242.2747 	EXP 	text_cross_space: autoDraw = False
+242.2747 	EXP 	stimulus: pos = array([-0.51188547,  0.04571703])
+242.2747 	EXP 	image_scene: ori = 0.0
+242.2747 	EXP 	image_scene: image = 'raw_scenes/Bathroom_7.png'
+242.2747 	EXP 	target_letter: pos = array([-0.51188547,  0.04571703])
+242.2747 	EXP 	stimulus: autoDraw = True
+242.2747 	EXP 	image_scene: autoDraw = True
+242.2747 	EXP 	target_letter: autoDraw = True
+252.0842 	DATA 	Mouse: wheel shift=(0,0), pos=(301,771)
+252.1005 	DATA 	Mouse: wheel shift=(0,-1), pos=(301,771)
+252.1008 	DATA 	Mouse: wheel shift=(0,0), pos=(301,771)
+252.1343 	DATA 	Mouse: wheel shift=(0,-1), pos=(301,771)
+252.1505 	DATA 	Mouse: wheel shift=(0,-1), pos=(301,771)
+252.1672 	DATA 	Mouse: wheel shift=(0,-1), pos=(301,771)
+252.1839 	DATA 	Mouse: wheel shift=(0,-1), pos=(301,771)
+252.2006 	DATA 	Mouse: wheel shift=(0,-1), pos=(301,771)
+252.2172 	DATA 	Mouse: wheel shift=(0,-1), pos=(301,771)
+252.2339 	DATA 	Mouse: wheel shift=(0,-1), pos=(301,771)
+252.2504 	DATA 	Mouse: wheel shift=(0,-1), pos=(301,771)
+252.2674 	DATA 	Mouse: wheel shift=(0,-1), pos=(301,771)
+252.2839 	DATA 	Mouse: wheel shift=(0,-1), pos=(301,771)
+252.3013 	DATA 	Mouse: wheel shift=(0,-1), pos=(301,771)
+252.3165 	DATA 	Mouse: wheel shift=(0,-1), pos=(301,771)
+252.3339 	DATA 	Mouse: wheel shift=(0,-1), pos=(301,771)
+252.3503 	DATA 	Mouse: wheel shift=(0,0), pos=(301,771)
+252.3674 	DATA 	Mouse: wheel shift=(0,0), pos=(301,771)
+252.3840 	DATA 	Mouse: wheel shift=(0,0), pos=(301,771)
+256.8173 	EXP 	New trial (rep=0, index=28): {'TrialType': 'mirrored', 'FileName': 'Bathroom_8', 'Xcoord': -0.09819821974686993, 'Ycoord': 0.10899881608394835}
+256.8336 	EXP 	stimulus: autoDraw = False
+256.8336 	EXP 	image_scene: autoDraw = False
+256.8336 	EXP 	target_letter: autoDraw = False
+256.8336 	EXP 	text_cross: autoDraw = True
+256.8336 	EXP 	text_cross_space: autoDraw = True
+258.3184 	DATA 	Keypress: space
+258.3521 	EXP 	text_cross: autoDraw = False
+258.3521 	EXP 	text_cross_space: autoDraw = False
+258.3521 	EXP 	stimulus: pos = array([-0.09819822,  0.10899882])
+258.3521 	EXP 	image_scene: ori = 0.0
+258.3521 	EXP 	image_scene: image = 'raw_scenes/Bathroom_8.png'
+258.3521 	EXP 	target_letter: pos = array([-0.09819822,  0.10899882])
+258.3521 	EXP 	stimulus: autoDraw = True
+258.3521 	EXP 	image_scene: autoDraw = True
+258.3521 	EXP 	target_letter: autoDraw = True
+261.7179 	DATA 	Mouse: Left button down, pos=(632,541)
+261.7202 	EXP 	New trial (rep=0, index=29): {'TrialType': None, 'FileName': None, 'Xcoord': None, 'Ycoord': None}
+261.7340 	EXP 	stimulus: autoDraw = False
+261.7340 	EXP 	image_scene: autoDraw = False
+261.7340 	EXP 	target_letter: autoDraw = False
+261.7340 	EXP 	text_cross: autoDraw = True
+261.7340 	EXP 	text_cross_space: autoDraw = True
+261.9202 	DATA 	Mouse:  Left button up, pos=(720,450)
+263.3277 	EXP 	New trial (rep=0, index=30): {'TrialType': None, 'FileName': None, 'Xcoord': None, 'Ycoord': None}
+263.3305 	DATA 	Keypress: space
+263.3349 	EXP 	text_cross: autoDraw = False
+263.3349 	EXP 	text_cross_space: autoDraw = False
+263.3349 	EXP 	stimulus: pos = array([nan, nan])
+263.3349 	EXP 	image_scene: ori = 0.0
+263.3349 	EXP 	image_scene: image = 'raw_scenes/Bathroom_8.png'
+263.3349 	EXP 	target_letter: pos = array([nan, nan])
+263.3349 	EXP 	stimulus: autoDraw = False
+263.3349 	EXP 	image_scene: autoDraw = False
+263.3349 	EXP 	target_letter: autoDraw = False
+263.3349 	EXP 	text_cross: autoDraw = True
+263.3349 	EXP 	text_cross_space: autoDraw = True
+266.2139 	EXP 	New trial (rep=0, index=31): {'TrialType': 'new', 'FileName': 'Office_5', 'Xcoord': -0.4543728911310967, 'Ycoord': -0.09458913112075207}
+266.2166 	DATA 	Keypress: space
+266.2210 	EXP 	text_cross: autoDraw = False
+266.2210 	EXP 	text_cross_space: autoDraw = False
+266.2210 	EXP 	stimulus: pos = array([nan, nan])
+266.2210 	EXP 	image_scene: ori = 0.0
+266.2210 	EXP 	image_scene: image = 'raw_scenes/Bathroom_8.png'
+266.2210 	EXP 	target_letter: pos = array([nan, nan])
+266.2210 	EXP 	stimulus: autoDraw = False
+266.2210 	EXP 	image_scene: autoDraw = False
+266.2210 	EXP 	target_letter: autoDraw = False
+266.2210 	EXP 	text_cross: autoDraw = True
+266.2210 	EXP 	text_cross_space: autoDraw = True
+267.7988 	DATA 	Keypress: space
+267.8325 	EXP 	text_cross: autoDraw = False
+267.8325 	EXP 	text_cross_space: autoDraw = False
+267.8325 	EXP 	stimulus: pos = array([-0.45437289, -0.09458913])
+267.8325 	EXP 	image_scene: ori = 0.0
+267.8325 	EXP 	image_scene: image = 'raw_scenes/Office_5.png'
+267.8325 	EXP 	target_letter: pos = array([-0.45437289, -0.09458913])
+267.8325 	EXP 	stimulus: autoDraw = True
+267.8325 	EXP 	image_scene: autoDraw = True
+267.8325 	EXP 	target_letter: autoDraw = True
+272.5196 	DATA 	Mouse: wheel shift=(0,0), pos=(470,593)
+272.5339 	DATA 	Mouse: wheel shift=(0,0), pos=(470,593)
+272.5528 	DATA 	Mouse: wheel shift=(0,0), pos=(470,593)
+272.5673 	DATA 	Mouse: wheel shift=(0,0), pos=(470,593)
+272.5676 	DATA 	Mouse: wheel shift=(0,0), pos=(470,593)
+272.6004 	DATA 	Mouse: wheel shift=(0,0), pos=(470,593)
+272.6172 	DATA 	Mouse: wheel shift=(0,0), pos=(470,593)
+272.6338 	DATA 	Mouse: wheel shift=(0,0), pos=(470,593)
+272.6506 	DATA 	Mouse: wheel shift=(0,0), pos=(470,593)
+272.6671 	DATA 	Mouse: wheel shift=(0,0), pos=(470,593)
+272.6838 	DATA 	Mouse: wheel shift=(0,0), pos=(470,593)
+272.7007 	DATA 	Mouse: wheel shift=(0,0), pos=(470,593)
+272.7171 	DATA 	Mouse: wheel shift=(0,0), pos=(470,593)
+272.7339 	DATA 	Mouse: wheel shift=(0,0), pos=(470,593)
+272.7504 	DATA 	Mouse: wheel shift=(0,-1), pos=(470,593)
+272.7673 	DATA 	Mouse: wheel shift=(0,0), pos=(470,593)
+272.7838 	DATA 	Mouse: wheel shift=(0,0), pos=(470,593)
+272.8005 	DATA 	Mouse: wheel shift=(0,0), pos=(470,593)
+272.8176 	DATA 	Mouse: wheel shift=(0,0), pos=(470,593)
+272.8342 	DATA 	Mouse: wheel shift=(0,-1), pos=(470,593)
+272.8507 	DATA 	Mouse: wheel shift=(0,0), pos=(469,593)
+282.3847 	EXP 	New trial (rep=0, index=32): {'TrialType': None, 'FileName': None, 'Xcoord': None, 'Ycoord': None}
+282.4012 	EXP 	stimulus: autoDraw = False
+282.4012 	EXP 	image_scene: autoDraw = False
+282.4012 	EXP 	target_letter: autoDraw = False
+282.4012 	EXP 	text_cross: autoDraw = True
+282.4012 	EXP 	text_cross_space: autoDraw = True
+283.7870 	EXP 	New trial (rep=0, index=33): {'TrialType': 'mirrored', 'FileName': 'Office_2', 'Xcoord': -0.11627395646333794, 'Ycoord': 0.3554980281510253}
+283.7897 	DATA 	Keypress: space
+283.7938 	EXP 	text_cross: autoDraw = False
+283.7938 	EXP 	text_cross_space: autoDraw = False
+283.7938 	EXP 	stimulus: pos = array([nan, nan])
+283.7938 	EXP 	image_scene: ori = 0.0
+283.7938 	EXP 	image_scene: image = 'raw_scenes/Office_5.png'
+283.7938 	EXP 	target_letter: pos = array([nan, nan])
+283.7938 	EXP 	stimulus: autoDraw = False
+283.7938 	EXP 	image_scene: autoDraw = False
+283.7938 	EXP 	target_letter: autoDraw = False
+283.7938 	EXP 	text_cross: autoDraw = True
+283.7938 	EXP 	text_cross_space: autoDraw = True
+286.9028 	DATA 	Keypress: space
+286.9385 	EXP 	text_cross: autoDraw = False
+286.9385 	EXP 	text_cross_space: autoDraw = False
+286.9385 	EXP 	stimulus: pos = array([-0.11627396,  0.35549803])
+286.9385 	EXP 	image_scene: ori = 0.0
+286.9385 	EXP 	image_scene: image = 'raw_scenes/Office_2.png'
+286.9385 	EXP 	target_letter: pos = array([-0.11627396,  0.35549803])
+286.9385 	EXP 	stimulus: autoDraw = True
+286.9385 	EXP 	image_scene: autoDraw = True
+286.9385 	EXP 	target_letter: autoDraw = True
+296.3182 	DATA 	Mouse: Left button down, pos=(614,765)
+296.3203 	EXP 	New trial (rep=0, index=34): {'TrialType': 'mirrored', 'FileName': 'Office_10', 'Xcoord': 0.11608733163229268, 'Ycoord': -0.13250240621851533}
+296.3348 	EXP 	stimulus: autoDraw = False
+296.3348 	EXP 	image_scene: autoDraw = False
+296.3348 	EXP 	target_letter: autoDraw = False
+296.3348 	EXP 	text_cross: autoDraw = True
+296.3348 	EXP 	text_cross_space: autoDraw = True
+296.4879 	DATA 	Mouse:  Left button up, pos=(720,450)
+297.6108 	DATA 	Keypress: space
+297.6450 	EXP 	text_cross: autoDraw = False
+297.6450 	EXP 	text_cross_space: autoDraw = False
+297.6450 	EXP 	stimulus: pos = array([ 0.11608733, -0.13250241])
+297.6450 	EXP 	image_scene: ori = 0.0
+297.6450 	EXP 	image_scene: image = 'raw_scenes/Office_10.png'
+297.6450 	EXP 	target_letter: pos = array([ 0.11608733, -0.13250241])
+297.6450 	EXP 	stimulus: autoDraw = True
+297.6450 	EXP 	image_scene: autoDraw = True
+297.6450 	EXP 	target_letter: autoDraw = True
+303.4853 	DATA 	Mouse: Left button down, pos=(818,339)
+303.4874 	EXP 	New trial (rep=0, index=35): {'TrialType': 'mirrored', 'FileName': 'Office_3', 'Xcoord': -0.4255253843575417, 'Ycoord': -0.2279017217959881}
+303.5016 	EXP 	stimulus: autoDraw = False
+303.5016 	EXP 	image_scene: autoDraw = False
+303.5016 	EXP 	target_letter: autoDraw = False
+303.5016 	EXP 	text_cross: autoDraw = True
+303.5016 	EXP 	text_cross_space: autoDraw = True
+303.6547 	DATA 	Mouse:  Left button up, pos=(720,450)
+304.9431 	DATA 	Keypress: space
+304.9770 	EXP 	text_cross: autoDraw = False
+304.9770 	EXP 	text_cross_space: autoDraw = False
+304.9770 	EXP 	stimulus: pos = array([-0.42552538, -0.22790172])
+304.9770 	EXP 	image_scene: ori = 0.0
+304.9770 	EXP 	image_scene: image = 'raw_scenes/Office_3.png'
+304.9770 	EXP 	target_letter: pos = array([-0.42552538, -0.22790172])
+304.9770 	EXP 	stimulus: autoDraw = True
+304.9770 	EXP 	image_scene: autoDraw = True
+304.9770 	EXP 	target_letter: autoDraw = True
+307.6853 	DATA 	Mouse: Left button down, pos=(330,251)
+307.6876 	EXP 	New trial (rep=0, index=36): {'TrialType': 'original', 'FileName': 'Bedroom_8', 'Xcoord': -0.5567825477527952, 'Ycoord': 0.0603788733137377}
+307.7017 	EXP 	stimulus: autoDraw = False
+307.7017 	EXP 	image_scene: autoDraw = False
+307.7017 	EXP 	target_letter: autoDraw = False
+307.7017 	EXP 	text_cross: autoDraw = True
+307.7017 	EXP 	text_cross_space: autoDraw = True
+307.8715 	DATA 	Mouse:  Left button up, pos=(720,450)
+309.0490 	DATA 	Keypress: space
+309.0827 	EXP 	text_cross: autoDraw = False
+309.0827 	EXP 	text_cross_space: autoDraw = False
+309.0827 	EXP 	stimulus: pos = array([-0.55678255,  0.06037887])
+309.0827 	EXP 	image_scene: ori = 0.0
+309.0827 	EXP 	image_scene: image = 'raw_scenes/Bedroom_8.png'
+309.0827 	EXP 	target_letter: pos = array([-0.55678255,  0.06037887])
+309.0827 	EXP 	stimulus: autoDraw = True
+309.0827 	EXP 	image_scene: autoDraw = True
+309.0827 	EXP 	target_letter: autoDraw = True
+312.8547 	DATA 	Mouse: Left button down, pos=(214,513)
+312.8694 	EXP 	New trial (rep=0, index=37): {'TrialType': 'new', 'FileName': 'Bedroom_3', 'Xcoord': -0.058792666346976774, 'Ycoord': -0.10652097080758433}
+312.8852 	EXP 	stimulus: autoDraw = False
+312.8852 	EXP 	image_scene: autoDraw = False
+312.8852 	EXP 	target_letter: autoDraw = False
+312.8852 	EXP 	text_cross: autoDraw = True
+312.8852 	EXP 	text_cross_space: autoDraw = True
+313.0209 	DATA 	Mouse:  Left button up, pos=(720,450)
+314.1912 	DATA 	Keypress: space
+314.2262 	EXP 	text_cross: autoDraw = False
+314.2262 	EXP 	text_cross_space: autoDraw = False
+314.2262 	EXP 	stimulus: pos = array([-0.05879267, -0.10652097])
+314.2262 	EXP 	image_scene: ori = 0.0
+314.2262 	EXP 	image_scene: image = 'raw_scenes/Bedroom_3.png'
+314.2262 	EXP 	target_letter: pos = array([-0.05879267, -0.10652097])
+314.2262 	EXP 	stimulus: autoDraw = True
+314.2262 	EXP 	image_scene: autoDraw = True
+314.2262 	EXP 	target_letter: autoDraw = True
+328.7686 	EXP 	New trial (rep=0, index=38): {'TrialType': 'mirrored', 'FileName': 'Bathroom_9', 'Xcoord': 0.08135314380040748, 'Ycoord': -0.1548458723919809}
+328.7856 	EXP 	stimulus: autoDraw = False
+328.7856 	EXP 	image_scene: autoDraw = False
+328.7856 	EXP 	target_letter: autoDraw = False
+328.7856 	EXP 	text_cross: autoDraw = True
+328.7856 	EXP 	text_cross_space: autoDraw = True
+330.4334 	DATA 	Keypress: space
+330.4700 	EXP 	text_cross: autoDraw = False
+330.4700 	EXP 	text_cross_space: autoDraw = False
+330.4700 	EXP 	stimulus: pos = array([ 0.08135314, -0.15484587])
+330.4700 	EXP 	image_scene: ori = 0.0
+330.4700 	EXP 	image_scene: image = 'raw_scenes/Bathroom_9.png'
+330.4700 	EXP 	target_letter: pos = array([ 0.08135314, -0.15484587])
+330.4700 	EXP 	stimulus: autoDraw = True
+330.4700 	EXP 	image_scene: autoDraw = True
+330.4700 	EXP 	target_letter: autoDraw = True
+332.2356 	DATA 	Mouse: Left button down, pos=(792,311)
+332.2374 	EXP 	New trial (rep=0, index=39): {'TrialType': None, 'FileName': None, 'Xcoord': None, 'Ycoord': None}
+332.2525 	EXP 	stimulus: autoDraw = False
+332.2525 	EXP 	image_scene: autoDraw = False
+332.2525 	EXP 	target_letter: autoDraw = False
+332.2525 	EXP 	text_cross: autoDraw = True
+332.2525 	EXP 	text_cross_space: autoDraw = True
+332.4387 	DATA 	Mouse:  Left button up, pos=(720,450)
+333.6508 	EXP 	New trial (rep=0, index=1): {'BlockNumber': 2}
+333.6528 	DATA 	Keypress: space
+333.6572 	EXP 	text_cross: autoDraw = False
+333.6572 	EXP 	text_cross_space: autoDraw = False
+333.6572 	EXP 	stimulus: pos = array([nan, nan])
+333.6572 	EXP 	image_scene: ori = 0.0
+333.6572 	EXP 	image_scene: image = 'raw_scenes/Bathroom_9.png'
+333.6572 	EXP 	target_letter: pos = array([nan, nan])
+333.6572 	EXP 	stimulus: autoDraw = False
+333.6572 	EXP 	image_scene: autoDraw = False
+333.6572 	EXP 	target_letter: autoDraw = False
+333.6572 	EXP 	text_2: autoDraw = True
+336.2567 	EXP 	Imported condition_participant/ConditionFile_Mirror_Block2_2.xlsx as conditions, 30 conditions, 4 params
+336.2576 	EXP 	Created sequence: random, trialTypes=30, nReps=1, seed=None
+336.2581 	EXP 	New trial (rep=0, index=0): {'TrialType': 'mirrored', 'FileName': 'Office_10', 'Xcoord': 0.11608733163229268, 'Ycoord': -0.13250240621851533}
+336.2634 	DATA 	Keypress: space
+336.2678 	EXP 	text_2: autoDraw = False
+336.2678 	EXP 	text_cross: autoDraw = True
+336.2678 	EXP 	text_cross_space: autoDraw = True
+338.5160 	DATA 	Keypress: space
+338.5506 	EXP 	text_cross: autoDraw = False
+338.5506 	EXP 	text_cross_space: autoDraw = False
+338.5506 	EXP 	stimulus: pos = array([-0.11608733, -0.13250241])
+338.5506 	EXP 	image_scene: ori = 0.0
+338.5506 	EXP 	image_scene: image = 'raw_scenes/Office_10.png'
+338.5506 	EXP 	target_letter: pos = array([-0.11608733, -0.13250241])
+338.5506 	EXP 	stimulus: autoDraw = True
+338.5506 	EXP 	image_scene: autoDraw = True
+338.5506 	EXP 	target_letter: autoDraw = True
+339.9694 	DATA 	Mouse: Left button down, pos=(623,338)
+339.9716 	EXP 	New trial (rep=0, index=1): {'TrialType': 'new', 'FileName': 'Kitchen_3', 'Xcoord': 0.28402402870038806, 'Ycoord': 0.24512777594277485}
+339.9848 	EXP 	stimulus: autoDraw = False
+339.9848 	EXP 	image_scene: autoDraw = False
+339.9848 	EXP 	target_letter: autoDraw = False
+339.9848 	EXP 	text_cross: autoDraw = True
+339.9848 	EXP 	text_cross_space: autoDraw = True
+340.1549 	DATA 	Mouse:  Left button up, pos=(720,450)
+342.0001 	DATA 	Keypress: space
+342.0340 	EXP 	text_cross: autoDraw = False
+342.0340 	EXP 	text_cross_space: autoDraw = False
+342.0340 	EXP 	stimulus: pos = array([0.28402403, 0.24512778])
+342.0340 	EXP 	image_scene: ori = 0.0
+342.0340 	EXP 	image_scene: image = 'raw_scenes/Kitchen_3.png'
+342.0340 	EXP 	target_letter: pos = array([0.28402403, 0.24512778])
+342.0340 	EXP 	stimulus: autoDraw = True
+342.0340 	EXP 	image_scene: autoDraw = True
+342.0340 	EXP 	target_letter: autoDraw = True
+348.3363 	DATA 	Mouse: Left button down, pos=(976,677)
+348.3383 	EXP 	New trial (rep=0, index=2): {'TrialType': 'new', 'FileName': 'Office_6', 'Xcoord': -0.45027815947881883, 'Ycoord': 0.16813700211432978}
+348.3527 	EXP 	stimulus: autoDraw = False
+348.3527 	EXP 	image_scene: autoDraw = False
+348.3527 	EXP 	target_letter: autoDraw = False
+348.3527 	EXP 	text_cross: autoDraw = True
+348.3527 	EXP 	text_cross_space: autoDraw = True
+348.5554 	DATA 	Mouse:  Left button up, pos=(720,450)
+349.6986 	DATA 	Keypress: space
+349.7322 	EXP 	text_cross: autoDraw = False
+349.7322 	EXP 	text_cross_space: autoDraw = False
+349.7322 	EXP 	stimulus: pos = array([-0.45027816,  0.168137  ])
+349.7322 	EXP 	image_scene: ori = 0.0
+349.7322 	EXP 	image_scene: image = 'raw_scenes/Office_6.png'
+349.7322 	EXP 	target_letter: pos = array([-0.45027816,  0.168137  ])
+349.7322 	EXP 	stimulus: autoDraw = True
+349.7322 	EXP 	image_scene: autoDraw = True
+349.7322 	EXP 	target_letter: autoDraw = True
+355.8718 	DATA 	Mouse: Left button down, pos=(312,606)
+355.8873 	EXP 	New trial (rep=0, index=3): {'TrialType': 'mirrored', 'FileName': 'Bathroom_8', 'Xcoord': -0.09819821974686993, 'Ycoord': 0.10899881608394835}
+355.9030 	EXP 	stimulus: autoDraw = False
+355.9030 	EXP 	image_scene: autoDraw = False
+355.9030 	EXP 	target_letter: autoDraw = False
+355.9030 	EXP 	text_cross: autoDraw = True
+355.9030 	EXP 	text_cross_space: autoDraw = True
+356.0723 	DATA 	Mouse:  Left button up, pos=(720,450)
+357.3061 	DATA 	Keypress: space
+357.3400 	EXP 	text_cross: autoDraw = False
+357.3400 	EXP 	text_cross_space: autoDraw = False
+357.3400 	EXP 	stimulus: pos = array([0.09819822, 0.10899882])
+357.3400 	EXP 	image_scene: ori = 0.0
+357.3400 	EXP 	image_scene: image = 'raw_scenes/Bathroom_8.png'
+357.3400 	EXP 	target_letter: pos = array([0.09819822, 0.10899882])
+357.3400 	EXP 	stimulus: autoDraw = True
+357.3400 	EXP 	image_scene: autoDraw = True
+357.3400 	EXP 	target_letter: autoDraw = True
+360.9033 	DATA 	Mouse: Left button down, pos=(809,548)
+360.9052 	EXP 	New trial (rep=0, index=4): {'TrialType': 'original', 'FileName': 'Office_7', 'Xcoord': -0.5290202343245594, 'Ycoord': 0.3679560584483372}
+360.9192 	EXP 	stimulus: autoDraw = False
+360.9192 	EXP 	image_scene: autoDraw = False
+360.9192 	EXP 	target_letter: autoDraw = False
+360.9192 	EXP 	text_cross: autoDraw = True
+360.9192 	EXP 	text_cross_space: autoDraw = True
+360.9888 	DATA 	Mouse:  Left button up, pos=(720,450)
+362.3938 	DATA 	Keypress: space
+362.4275 	EXP 	text_cross: autoDraw = False
+362.4275 	EXP 	text_cross_space: autoDraw = False
+362.4275 	EXP 	stimulus: pos = array([-0.52902023,  0.36795606])
+362.4275 	EXP 	image_scene: ori = 0.0
+362.4275 	EXP 	image_scene: image = 'raw_scenes/Office_7.png'
+362.4275 	EXP 	target_letter: pos = array([-0.52902023,  0.36795606])
+362.4275 	EXP 	stimulus: autoDraw = True
+362.4275 	EXP 	image_scene: autoDraw = True
+362.4275 	EXP 	target_letter: autoDraw = True
+365.4200 	DATA 	Mouse: Left button down, pos=(238,785)
+365.4218 	EXP 	New trial (rep=0, index=5): {'TrialType': 'original', 'FileName': 'Kitchen_6', 'Xcoord': 0.5063406658978314, 'Ycoord': -0.3605115625264501}
+365.4354 	EXP 	stimulus: autoDraw = False
+365.4354 	EXP 	image_scene: autoDraw = False
+365.4354 	EXP 	target_letter: autoDraw = False
+365.4354 	EXP 	text_cross: autoDraw = True
+365.4354 	EXP 	text_cross_space: autoDraw = True
+365.5889 	DATA 	Mouse:  Left button up, pos=(720,450)
+366.7762 	DATA 	Keypress: space
+366.8101 	EXP 	text_cross: autoDraw = False
+366.8101 	EXP 	text_cross_space: autoDraw = False
+366.8101 	EXP 	stimulus: pos = array([ 0.50634067, -0.36051156])
+366.8101 	EXP 	image_scene: ori = 0.0
+366.8101 	EXP 	image_scene: image = 'raw_scenes/Kitchen_6.png'
+366.8101 	EXP 	target_letter: pos = array([ 0.50634067, -0.36051156])
+366.8101 	EXP 	stimulus: autoDraw = True
+366.8101 	EXP 	image_scene: autoDraw = True
+366.8101 	EXP 	target_letter: autoDraw = True
+371.5870 	DATA 	Mouse: Left button down, pos=(1171,123)
+371.5890 	EXP 	New trial (rep=0, index=6): {'TrialType': 'mirrored', 'FileName': 'Bathroom_7', 'Xcoord': -0.5118854702172839, 'Ycoord': 0.04571702855657883}
+371.6037 	EXP 	stimulus: autoDraw = False
+371.6037 	EXP 	image_scene: autoDraw = False
+371.6037 	EXP 	target_letter: autoDraw = False
+371.6037 	EXP 	text_cross: autoDraw = True
+371.6037 	EXP 	text_cross_space: autoDraw = True
+371.8057 	DATA 	Mouse:  Left button up, pos=(720,450)
+372.9563 	DATA 	Keypress: space
+372.9917 	EXP 	text_cross: autoDraw = False
+372.9917 	EXP 	text_cross_space: autoDraw = False
+372.9917 	EXP 	stimulus: pos = array([0.51188547, 0.04571703])
+372.9917 	EXP 	image_scene: ori = 0.0
+372.9917 	EXP 	image_scene: image = 'raw_scenes/Bathroom_7.png'
+372.9917 	EXP 	target_letter: pos = array([0.51188547, 0.04571703])
+372.9917 	EXP 	stimulus: autoDraw = True
+372.9917 	EXP 	image_scene: autoDraw = True
+372.9917 	EXP 	target_letter: autoDraw = True
+373.0868 	DATA 	Keypress: space
+387.5367 	EXP 	New trial (rep=0, index=7): {'TrialType': 'mirrored', 'FileName': 'Office_2', 'Xcoord': -0.11627395646333794, 'Ycoord': 0.3554980281510253}
+387.5540 	EXP 	stimulus: autoDraw = False
+387.5540 	EXP 	image_scene: autoDraw = False
+387.5540 	EXP 	target_letter: autoDraw = False
+387.5540 	EXP 	text_cross: autoDraw = True
+387.5540 	EXP 	text_cross_space: autoDraw = True
+389.0415 	DATA 	Keypress: space
+389.0751 	EXP 	text_cross: autoDraw = False
+389.0751 	EXP 	text_cross_space: autoDraw = False
+389.0751 	EXP 	stimulus: pos = array([0.11627396, 0.35549803])
+389.0751 	EXP 	image_scene: ori = 0.0
+389.0751 	EXP 	image_scene: image = 'raw_scenes/Office_2.png'
+389.0751 	EXP 	target_letter: pos = array([0.11627396, 0.35549803])
+389.0751 	EXP 	stimulus: autoDraw = True
+389.0751 	EXP 	image_scene: autoDraw = True
+389.0751 	EXP 	target_letter: autoDraw = True
+395.4040 	DATA 	Mouse: Left button down, pos=(823,764)
+395.4055 	EXP 	New trial (rep=0, index=8): {'TrialType': 'original', 'FileName': 'Bathroom_2', 'Xcoord': 0.3656614104487188, 'Ycoord': -0.3642648022623469}
+395.4195 	EXP 	stimulus: autoDraw = False
+395.4195 	EXP 	image_scene: autoDraw = False
+395.4195 	EXP 	target_letter: autoDraw = False
+395.4195 	EXP 	text_cross: autoDraw = True
+395.4195 	EXP 	text_cross_space: autoDraw = True
+395.6226 	DATA 	Mouse:  Left button up, pos=(720,450)
+396.6468 	DATA 	Keypress: space
+396.6836 	EXP 	text_cross: autoDraw = False
+396.6836 	EXP 	text_cross_space: autoDraw = False
+396.6836 	EXP 	stimulus: pos = array([ 0.36566141, -0.3642648 ])
+396.6836 	EXP 	image_scene: ori = 0.0
+396.6836 	EXP 	image_scene: image = 'raw_scenes/Bathroom_2.png'
+396.6836 	EXP 	target_letter: pos = array([ 0.36566141, -0.3642648 ])
+396.6836 	EXP 	stimulus: autoDraw = True
+396.6836 	EXP 	image_scene: autoDraw = True
+396.6836 	EXP 	target_letter: autoDraw = True
+400.8373 	DATA 	Mouse: Left button down, pos=(1047,124)
+400.8392 	EXP 	New trial (rep=0, index=9): {'TrialType': 'mirrored', 'FileName': 'Office_1', 'Xcoord': 0.19335856309052968, 'Ycoord': 0.02148845863843174}
+400.8537 	EXP 	stimulus: autoDraw = False
+400.8537 	EXP 	image_scene: autoDraw = False
+400.8537 	EXP 	target_letter: autoDraw = False
+400.8537 	EXP 	text_cross: autoDraw = True
+400.8537 	EXP 	text_cross_space: autoDraw = True
+400.9567 	DATA 	Mouse:  Left button up, pos=(720,450)
+402.0161 	DATA 	Keypress: space
+402.0511 	EXP 	text_cross: autoDraw = False
+402.0511 	EXP 	text_cross_space: autoDraw = False
+402.0511 	EXP 	stimulus: pos = array([-0.19335856,  0.02148846])
+402.0511 	EXP 	image_scene: ori = 0.0
+402.0511 	EXP 	image_scene: image = 'raw_scenes/Office_1.png'
+402.0511 	EXP 	target_letter: pos = array([-0.19335856,  0.02148846])
+402.0511 	EXP 	stimulus: autoDraw = True
+402.0511 	EXP 	image_scene: autoDraw = True
+402.0511 	EXP 	target_letter: autoDraw = True
+416.6044 	EXP 	New trial (rep=0, index=10): {'TrialType': 'new', 'FileName': 'Kitchen_10', 'Xcoord': 0.3702508547452177, 'Ycoord': 0.18807015484864487}
+416.6211 	EXP 	stimulus: autoDraw = False
+416.6211 	EXP 	image_scene: autoDraw = False
+416.6211 	EXP 	target_letter: autoDraw = False
+416.6211 	EXP 	text_cross: autoDraw = True
+416.6211 	EXP 	text_cross_space: autoDraw = True
+418.0686 	DATA 	Keypress: space
+418.1024 	EXP 	text_cross: autoDraw = False
+418.1024 	EXP 	text_cross_space: autoDraw = False
+418.1024 	EXP 	stimulus: pos = array([0.37025085, 0.18807015])
+418.1024 	EXP 	image_scene: ori = 0.0
+418.1024 	EXP 	image_scene: image = 'raw_scenes/Kitchen_10.png'
+418.1024 	EXP 	target_letter: pos = array([0.37025085, 0.18807015])
+418.1024 	EXP 	stimulus: autoDraw = True
+418.1024 	EXP 	image_scene: autoDraw = True
+418.1024 	EXP 	target_letter: autoDraw = True
+432.6545 	EXP 	New trial (rep=0, index=11): {'TrialType': 'mirrored', 'FileName': 'Bathroom_9', 'Xcoord': 0.08135314380040748, 'Ycoord': -0.1548458723919809}
+432.6718 	EXP 	stimulus: autoDraw = False
+432.6718 	EXP 	image_scene: autoDraw = False
+432.6718 	EXP 	target_letter: autoDraw = False
+432.6718 	EXP 	text_cross: autoDraw = True
+432.6718 	EXP 	text_cross_space: autoDraw = True
+434.0788 	DATA 	Keypress: space
+434.1126 	EXP 	text_cross: autoDraw = False
+434.1126 	EXP 	text_cross_space: autoDraw = False
+434.1126 	EXP 	stimulus: pos = array([-0.08135314, -0.15484587])
+434.1126 	EXP 	image_scene: ori = 0.0
+434.1126 	EXP 	image_scene: image = 'raw_scenes/Bathroom_9.png'
+434.1126 	EXP 	target_letter: pos = array([-0.08135314, -0.15484587])
+434.1126 	EXP 	stimulus: autoDraw = True
+434.1126 	EXP 	image_scene: autoDraw = True
+434.1126 	EXP 	target_letter: autoDraw = True
+436.6881 	DATA 	Mouse: Left button down, pos=(651,329)
+436.8381 	DATA 	Mouse:  Left button up, pos=(651,329)
+438.4218 	DATA 	Mouse: Left button down, pos=(646,317)
+438.4236 	EXP 	New trial (rep=0, index=12): {'TrialType': 'original', 'FileName': 'Bedroom_5', 'Xcoord': 0.6120571577404286, 'Ycoord': 0.21869780057042887}
+438.4377 	EXP 	stimulus: autoDraw = False
+438.4377 	EXP 	image_scene: autoDraw = False
+438.4377 	EXP 	target_letter: autoDraw = False
+438.4377 	EXP 	text_cross: autoDraw = True
+438.4377 	EXP 	text_cross_space: autoDraw = True
+438.6745 	DATA 	Mouse:  Left button up, pos=(720,450)
+439.7548 	DATA 	Keypress: space
+439.7892 	EXP 	text_cross: autoDraw = False
+439.7892 	EXP 	text_cross_space: autoDraw = False
+439.7892 	EXP 	stimulus: pos = array([0.61205716, 0.2186978 ])
+439.7892 	EXP 	image_scene: ori = 0.0
+439.7892 	EXP 	image_scene: image = 'raw_scenes/Bedroom_5.png'
+439.7892 	EXP 	target_letter: pos = array([0.61205716, 0.2186978 ])
+439.7892 	EXP 	stimulus: autoDraw = True
+439.7892 	EXP 	image_scene: autoDraw = True
+439.7892 	EXP 	target_letter: autoDraw = True
+454.3385 	EXP 	New trial (rep=0, index=13): {'TrialType': 'new', 'FileName': 'Kitchen_7', 'Xcoord': 0.2033016219357205, 'Ycoord': 0.17827770130147275}
+454.3542 	EXP 	stimulus: autoDraw = False
+454.3542 	EXP 	image_scene: autoDraw = False
+454.3542 	EXP 	target_letter: autoDraw = False
+454.3542 	EXP 	text_cross: autoDraw = True
+454.3542 	EXP 	text_cross_space: autoDraw = True
+455.6452 	DATA 	Keypress: space
+455.6789 	EXP 	text_cross: autoDraw = False
+455.6789 	EXP 	text_cross_space: autoDraw = False
+455.6789 	EXP 	stimulus: pos = array([0.20330162, 0.1782777 ])
+455.6789 	EXP 	image_scene: ori = 0.0
+455.6789 	EXP 	image_scene: image = 'raw_scenes/Kitchen_7.png'
+455.6789 	EXP 	target_letter: pos = array([0.20330162, 0.1782777 ])
+455.6789 	EXP 	stimulus: autoDraw = True
+455.6789 	EXP 	image_scene: autoDraw = True
+455.6789 	EXP 	target_letter: autoDraw = True
+470.2382 	EXP 	New trial (rep=0, index=14): {'TrialType': 'original', 'FileName': 'Bedroom_10', 'Xcoord': -0.19595916913992273, 'Ycoord': 0.015254393557601609}
+470.2548 	EXP 	stimulus: autoDraw = False
+470.2548 	EXP 	image_scene: autoDraw = False
+470.2548 	EXP 	target_letter: autoDraw = False
+470.2548 	EXP 	text_cross: autoDraw = True
+470.2548 	EXP 	text_cross_space: autoDraw = True
+471.7473 	DATA 	Keypress: space
+471.7812 	EXP 	text_cross: autoDraw = False
+471.7812 	EXP 	text_cross_space: autoDraw = False
+471.7812 	EXP 	stimulus: pos = array([-0.19595917,  0.01525439])
+471.7812 	EXP 	image_scene: ori = 0.0
+471.7812 	EXP 	image_scene: image = 'raw_scenes/Bedroom_10.png'
+471.7812 	EXP 	target_letter: pos = array([-0.19595917,  0.01525439])
+471.7812 	EXP 	stimulus: autoDraw = True
+471.7812 	EXP 	image_scene: autoDraw = True
+471.7812 	EXP 	target_letter: autoDraw = True
+473.3889 	DATA 	Mouse: Left button down, pos=(546,460)
+473.3908 	EXP 	New trial (rep=0, index=15): {'TrialType': 'original', 'FileName': 'Kitchen_5', 'Xcoord': 0.059371041287149984, 'Ycoord': -0.23290413077113362}
+473.4052 	EXP 	stimulus: autoDraw = False
+473.4052 	EXP 	image_scene: autoDraw = False
+473.4052 	EXP 	target_letter: autoDraw = False
+473.4052 	EXP 	text_cross: autoDraw = True
+473.4052 	EXP 	text_cross_space: autoDraw = True
+473.5079 	DATA 	Mouse:  Left button up, pos=(720,450)
+474.7330 	DATA 	Keypress: space
+474.7667 	EXP 	text_cross: autoDraw = False
+474.7667 	EXP 	text_cross_space: autoDraw = False
+474.7667 	EXP 	stimulus: pos = array([ 0.05937104, -0.23290413])
+474.7667 	EXP 	image_scene: ori = 0.0
+474.7667 	EXP 	image_scene: image = 'raw_scenes/Kitchen_5.png'
+474.7667 	EXP 	target_letter: pos = array([ 0.05937104, -0.23290413])
+474.7667 	EXP 	stimulus: autoDraw = True
+474.7667 	EXP 	image_scene: autoDraw = True
+474.7667 	EXP 	target_letter: autoDraw = True
+483.2719 	DATA 	Mouse: wheel shift=(0,0), pos=(965,253)
+483.2909 	DATA 	Mouse: wheel shift=(0,0), pos=(965,253)
+483.3053 	DATA 	Mouse: wheel shift=(0,-1), pos=(965,253)
+483.3242 	DATA 	Mouse: wheel shift=(0,0), pos=(965,253)
+483.3245 	DATA 	Mouse: wheel shift=(0,0), pos=(965,253)
+483.3574 	DATA 	Mouse: wheel shift=(0,0), pos=(965,253)
+483.3719 	DATA 	Mouse: wheel shift=(0,0), pos=(965,253)
+483.3884 	DATA 	Mouse: wheel shift=(0,0), pos=(965,253)
+483.4052 	DATA 	Mouse: wheel shift=(0,0), pos=(965,253)
+483.4217 	DATA 	Mouse: wheel shift=(0,0), pos=(965,253)
+483.4384 	DATA 	Mouse: wheel shift=(0,0), pos=(965,253)
+483.4550 	DATA 	Mouse: wheel shift=(0,0), pos=(965,253)
+483.4723 	DATA 	Mouse: wheel shift=(0,0), pos=(965,253)
+483.4887 	DATA 	Mouse: wheel shift=(0,0), pos=(965,253)
+483.5052 	DATA 	Mouse: wheel shift=(0,0), pos=(965,253)
+483.5218 	DATA 	Mouse: wheel shift=(0,0), pos=(965,253)
+483.5383 	DATA 	Mouse: wheel shift=(0,0), pos=(965,253)
+483.5550 	DATA 	Mouse: wheel shift=(0,0), pos=(965,253)
+483.5718 	DATA 	Mouse: wheel shift=(0,0), pos=(965,253)
+483.5887 	DATA 	Mouse: wheel shift=(0,0), pos=(965,253)
+483.6050 	DATA 	Mouse: wheel shift=(0,0), pos=(965,253)
+483.6054 	DATA 	Mouse: wheel shift=(0,0), pos=(965,253)
+489.3391 	EXP 	New trial (rep=0, index=16): {'TrialType': 'original', 'FileName': 'Kitchen_2', 'Xcoord': -0.35779162698232614, 'Ycoord': -0.25299261780930415}
+489.3553 	EXP 	stimulus: autoDraw = False
+489.3553 	EXP 	image_scene: autoDraw = False
+489.3553 	EXP 	target_letter: autoDraw = False
+489.3553 	EXP 	text_cross: autoDraw = True
+489.3553 	EXP 	text_cross_space: autoDraw = True
+490.6880 	DATA 	Keypress: space
+490.7234 	EXP 	text_cross: autoDraw = False
+490.7234 	EXP 	text_cross_space: autoDraw = False
+490.7234 	EXP 	stimulus: pos = array([-0.35779163, -0.25299262])
+490.7234 	EXP 	image_scene: ori = 0.0
+490.7234 	EXP 	image_scene: image = 'raw_scenes/Kitchen_2.png'
+490.7234 	EXP 	target_letter: pos = array([-0.35779163, -0.25299262])
+490.7234 	EXP 	stimulus: autoDraw = True
+490.7234 	EXP 	image_scene: autoDraw = True
+490.7234 	EXP 	target_letter: autoDraw = True
+505.2723 	EXP 	New trial (rep=0, index=17): {'TrialType': 'mirrored', 'FileName': 'Bathroom_6', 'Xcoord': 0.5380791815848759, 'Ycoord': -0.3119818890817943}
+505.2881 	EXP 	stimulus: autoDraw = False
+505.2881 	EXP 	image_scene: autoDraw = False
+505.2881 	EXP 	target_letter: autoDraw = False
+505.2881 	EXP 	text_cross: autoDraw = True
+505.2881 	EXP 	text_cross_space: autoDraw = True
+508.4044 	DATA 	Keypress: space
+508.4383 	EXP 	text_cross: autoDraw = False
+508.4383 	EXP 	text_cross_space: autoDraw = False
+508.4383 	EXP 	stimulus: pos = array([-0.53807918, -0.31198189])
+508.4383 	EXP 	image_scene: ori = 0.0
+508.4383 	EXP 	image_scene: image = 'raw_scenes/Bathroom_6.png'
+508.4383 	EXP 	target_letter: pos = array([-0.53807918, -0.31198189])
+508.4383 	EXP 	stimulus: autoDraw = True
+508.4383 	EXP 	image_scene: autoDraw = True
+508.4383 	EXP 	target_letter: autoDraw = True
+513.3901 	DATA 	Mouse: Left button down, pos=(237,170)
+513.3919 	EXP 	New trial (rep=0, index=18): {'TrialType': 'mirrored', 'FileName': 'Office_3', 'Xcoord': -0.4255253843575417, 'Ycoord': -0.2279017217959881}
+513.4063 	EXP 	stimulus: autoDraw = False
+513.4063 	EXP 	image_scene: autoDraw = False
+513.4063 	EXP 	target_letter: autoDraw = False
+513.4063 	EXP 	text_cross: autoDraw = True
+513.4063 	EXP 	text_cross_space: autoDraw = True
+513.5427 	DATA 	Mouse:  Left button up, pos=(720,450)
+517.6507 	DATA 	Keypress: space
+517.6846 	EXP 	text_cross: autoDraw = False
+517.6846 	EXP 	text_cross_space: autoDraw = False
+517.6846 	EXP 	stimulus: pos = array([ 0.42552538, -0.22790172])
+517.6846 	EXP 	image_scene: ori = 0.0
+517.6846 	EXP 	image_scene: image = 'raw_scenes/Office_3.png'
+517.6846 	EXP 	target_letter: pos = array([ 0.42552538, -0.22790172])
+517.6846 	EXP 	stimulus: autoDraw = True
+517.6846 	EXP 	image_scene: autoDraw = True
+517.6846 	EXP 	target_letter: autoDraw = True
+522.0260 	DATA 	Mouse: Left button down, pos=(1103,248)
+522.0407 	EXP 	New trial (rep=0, index=19): {'TrialType': 'original', 'FileName': 'Kitchen_8', 'Xcoord': -0.5983202333638026, 'Ycoord': 0.34827453306268374}
+522.0562 	EXP 	stimulus: autoDraw = False
+522.0562 	EXP 	image_scene: autoDraw = False
+522.0562 	EXP 	target_letter: autoDraw = False
+522.0562 	EXP 	text_cross: autoDraw = True
+522.0562 	EXP 	text_cross_space: autoDraw = True
+522.2258 	DATA 	Mouse:  Left button up, pos=(720,450)
+523.6103 	DATA 	Keypress: space
+524.0667 	EXP 	text_cross: autoDraw = False
+524.0667 	EXP 	text_cross_space: autoDraw = False
+524.0667 	EXP 	stimulus: pos = array([-0.59832023,  0.34827453])
+524.0667 	EXP 	image_scene: ori = 0.0
+524.0667 	EXP 	image_scene: image = 'raw_scenes/Kitchen_8.png'
+524.0667 	EXP 	target_letter: pos = array([-0.59832023,  0.34827453])
+524.0667 	EXP 	stimulus: autoDraw = True
+524.0667 	EXP 	image_scene: autoDraw = True
+524.0667 	EXP 	target_letter: autoDraw = True
+527.2073 	DATA 	Mouse: Left button down, pos=(179,774)
+527.2092 	EXP 	New trial (rep=0, index=20): {'TrialType': 'original', 'FileName': 'Bedroom_9', 'Xcoord': 0.27082633802435085, 'Ycoord': 0.31115801474273225}
+527.2234 	EXP 	stimulus: autoDraw = False
+527.2234 	EXP 	image_scene: autoDraw = False
+527.2234 	EXP 	target_letter: autoDraw = False
+527.2234 	EXP 	text_cross: autoDraw = True
+527.2234 	EXP 	text_cross_space: autoDraw = True
+527.4264 	DATA 	Mouse:  Left button up, pos=(720,450)
+528.4646 	DATA 	Keypress: space
+528.5010 	EXP 	text_cross: autoDraw = False
+528.5010 	EXP 	text_cross_space: autoDraw = False
+528.5010 	EXP 	stimulus: pos = array([0.27082634, 0.31115801])
+528.5010 	EXP 	image_scene: ori = 0.0
+528.5010 	EXP 	image_scene: image = 'raw_scenes/Bedroom_9.png'
+528.5010 	EXP 	target_letter: pos = array([0.27082634, 0.31115801])
+528.5010 	EXP 	stimulus: autoDraw = True
+528.5010 	EXP 	image_scene: autoDraw = True
+528.5010 	EXP 	target_letter: autoDraw = True
+530.9903 	DATA 	Mouse: Left button down, pos=(958,735)
+530.9920 	EXP 	New trial (rep=0, index=21): {'TrialType': 'mirrored', 'FileName': 'Bathroom_3', 'Xcoord': 0.6902131574918087, 'Ycoord': -0.016148810751422604}
+531.0067 	EXP 	stimulus: autoDraw = False
+531.0067 	EXP 	image_scene: autoDraw = False
+531.0067 	EXP 	target_letter: autoDraw = False
+531.0067 	EXP 	text_cross: autoDraw = True
+531.0067 	EXP 	text_cross_space: autoDraw = True
+531.2088 	DATA 	Mouse:  Left button up, pos=(720,450)
+532.3254 	DATA 	Keypress: space
+532.3591 	EXP 	text_cross: autoDraw = False
+532.3591 	EXP 	text_cross_space: autoDraw = False
+532.3591 	EXP 	stimulus: pos = array([-0.69021316, -0.01614881])
+532.3591 	EXP 	image_scene: ori = 0.0
+532.3591 	EXP 	image_scene: image = 'raw_scenes/Bathroom_3.png'
+532.3591 	EXP 	target_letter: pos = array([-0.69021316, -0.01614881])
+532.3591 	EXP 	stimulus: autoDraw = True
+532.3591 	EXP 	image_scene: autoDraw = True
+532.3591 	EXP 	target_letter: autoDraw = True
+533.6586 	DATA 	Mouse: wheel shift=(0,0), pos=(131,395)
+533.6589 	DATA 	Mouse: wheel shift=(0,0), pos=(131,395)
+533.6733 	DATA 	Mouse: wheel shift=(0,0), pos=(131,395)
+533.6896 	DATA 	Mouse: wheel shift=(0,0), pos=(131,395)
+533.6899 	DATA 	Mouse: wheel shift=(0,0), pos=(131,395)
+533.7227 	DATA 	Mouse: wheel shift=(0,0), pos=(131,395)
+533.7398 	DATA 	Mouse: wheel shift=(0,0), pos=(131,395)
+533.7562 	DATA 	Mouse: wheel shift=(0,0), pos=(131,395)
+533.7728 	DATA 	Mouse: wheel shift=(0,0), pos=(131,395)
+533.7896 	DATA 	Mouse: wheel shift=(0,0), pos=(131,395)
+533.8067 	DATA 	Mouse: wheel shift=(0,0), pos=(131,395)
+533.8228 	DATA 	Mouse: wheel shift=(0,0), pos=(131,395)
+533.8397 	DATA 	Mouse: wheel shift=(0,0), pos=(131,395)
+533.8560 	DATA 	Mouse: wheel shift=(0,0), pos=(131,395)
+533.8730 	DATA 	Mouse: wheel shift=(0,0), pos=(131,395)
+533.8896 	DATA 	Mouse: wheel shift=(0,0), pos=(131,395)
+534.6069 	DATA 	Mouse: Left button down, pos=(99,431)
+534.6086 	EXP 	New trial (rep=0, index=22): {'TrialType': 'new', 'FileName': 'Kitchen_9', 'Xcoord': 0.41660388498467116, 'Ycoord': 0.10264772603357497}
+534.6227 	EXP 	stimulus: autoDraw = False
+534.6227 	EXP 	image_scene: autoDraw = False
+534.6227 	EXP 	target_letter: autoDraw = False
+534.6227 	EXP 	text_cross: autoDraw = True
+534.6227 	EXP 	text_cross_space: autoDraw = True
+534.6915 	DATA 	Mouse:  Left button up, pos=(720,450)
+536.1067 	DATA 	Keypress: space
+536.1409 	EXP 	text_cross: autoDraw = False
+536.1409 	EXP 	text_cross_space: autoDraw = False
+536.1409 	EXP 	stimulus: pos = array([0.41660388, 0.10264773])
+536.1409 	EXP 	image_scene: ori = 0.0
+536.1409 	EXP 	image_scene: image = 'raw_scenes/Kitchen_9.png'
+536.1409 	EXP 	target_letter: pos = array([0.41660388, 0.10264773])
+536.1409 	EXP 	stimulus: autoDraw = True
+536.1409 	EXP 	image_scene: autoDraw = True
+536.1409 	EXP 	target_letter: autoDraw = True
+538.9404 	DATA 	Mouse: Left button down, pos=(1089,546)
+538.9424 	EXP 	New trial (rep=0, index=23): {'TrialType': 'new', 'FileName': 'Bedroom_7', 'Xcoord': 0.19722509442161196, 'Ycoord': 0.396641143293865}
+538.9564 	EXP 	stimulus: autoDraw = False
+538.9564 	EXP 	image_scene: autoDraw = False
+538.9564 	EXP 	target_letter: autoDraw = False
+538.9564 	EXP 	text_cross: autoDraw = True
+538.9564 	EXP 	text_cross_space: autoDraw = True
+539.0093 	DATA 	Mouse:  Left button up, pos=(720,450)
+540.1384 	DATA 	Keypress: space
+540.1736 	EXP 	text_cross: autoDraw = False
+540.1736 	EXP 	text_cross_space: autoDraw = False
+540.1736 	EXP 	stimulus: pos = array([0.19722509, 0.39664114])
+540.1736 	EXP 	image_scene: ori = 0.0
+540.1736 	EXP 	image_scene: image = 'raw_scenes/Bedroom_7.png'
+540.1736 	EXP 	target_letter: pos = array([0.19722509, 0.39664114])
+540.1736 	EXP 	stimulus: autoDraw = True
+540.1736 	EXP 	image_scene: autoDraw = True
+540.1736 	EXP 	target_letter: autoDraw = True
+543.0235 	DATA 	Mouse: Left button down, pos=(899,818)
+543.0255 	EXP 	New trial (rep=0, index=24): {'TrialType': 'new', 'FileName': 'Kitchen_4', 'Xcoord': -0.6106882292594353, 'Ycoord': -0.08144890568279839}
+543.0400 	EXP 	stimulus: autoDraw = False
+543.0400 	EXP 	image_scene: autoDraw = False
+543.0400 	EXP 	target_letter: autoDraw = False
+543.0400 	EXP 	text_cross: autoDraw = True
+543.0400 	EXP 	text_cross_space: autoDraw = True
+543.0758 	DATA 	Mouse:  Left button up, pos=(720,450)
+544.3693 	DATA 	Keypress: space
+544.4037 	EXP 	text_cross: autoDraw = False
+544.4037 	EXP 	text_cross_space: autoDraw = False
+544.4037 	EXP 	stimulus: pos = array([-0.61068823, -0.08144891])
+544.4037 	EXP 	image_scene: ori = 0.0
+544.4037 	EXP 	image_scene: image = 'raw_scenes/Kitchen_4.png'
+544.4037 	EXP 	target_letter: pos = array([-0.61068823, -0.08144891])
+544.4037 	EXP 	stimulus: autoDraw = True
+544.4037 	EXP 	image_scene: autoDraw = True
+544.4037 	EXP 	target_letter: autoDraw = True
+558.9572 	EXP 	New trial (rep=0, index=25): {'TrialType': 'new', 'FileName': 'Bathroom_1', 'Xcoord': 0.2339580409963974, 'Ycoord': 0.07248142913443673}
+558.9735 	EXP 	stimulus: autoDraw = False
+558.9735 	EXP 	image_scene: autoDraw = False
+558.9735 	EXP 	target_letter: autoDraw = False
+558.9735 	EXP 	text_cross: autoDraw = True
+558.9735 	EXP 	text_cross_space: autoDraw = True
+560.3220 	DATA 	Keypress: space
+560.3561 	EXP 	text_cross: autoDraw = False
+560.3561 	EXP 	text_cross_space: autoDraw = False
+560.3561 	EXP 	stimulus: pos = array([0.23395804, 0.07248143])
+560.3561 	EXP 	image_scene: ori = 0.0
+560.3561 	EXP 	image_scene: image = 'raw_scenes/Bathroom_1.png'
+560.3561 	EXP 	target_letter: pos = array([0.23395804, 0.07248143])
+560.3561 	EXP 	stimulus: autoDraw = True
+560.3561 	EXP 	image_scene: autoDraw = True
+560.3561 	EXP 	target_letter: autoDraw = True
+562.1075 	DATA 	Mouse: Left button down, pos=(920,504)
+562.1095 	EXP 	New trial (rep=0, index=26): {'TrialType': 'new', 'FileName': 'Bedroom_2', 'Xcoord': 0.28450981491877586, 'Ycoord': 0.3068209150564466}
+562.1239 	EXP 	stimulus: autoDraw = False
+562.1239 	EXP 	image_scene: autoDraw = False
+562.1239 	EXP 	target_letter: autoDraw = False
+562.1239 	EXP 	text_cross: autoDraw = True
+562.1239 	EXP 	text_cross_space: autoDraw = True
+562.2760 	DATA 	Mouse:  Left button up, pos=(720,450)
+563.4218 	DATA 	Keypress: space
+563.4586 	EXP 	text_cross: autoDraw = False
+563.4586 	EXP 	text_cross_space: autoDraw = False
+563.4586 	EXP 	stimulus: pos = array([0.28450981, 0.30682092])
+563.4586 	EXP 	image_scene: ori = 0.0
+563.4586 	EXP 	image_scene: image = 'raw_scenes/Bedroom_2.png'
+563.4586 	EXP 	target_letter: pos = array([0.28450981, 0.30682092])
+563.4586 	EXP 	stimulus: autoDraw = True
+563.4586 	EXP 	image_scene: autoDraw = True
+563.4586 	EXP 	target_letter: autoDraw = True
+565.1929 	DATA 	Mouse: Left button down, pos=(976,741)
+565.2083 	EXP 	New trial (rep=0, index=27): {'TrialType': 'original', 'FileName': 'Bedroom_8', 'Xcoord': -0.5567825477527952, 'Ycoord': 0.0603788733137377}
+565.2238 	EXP 	stimulus: autoDraw = False
+565.2238 	EXP 	image_scene: autoDraw = False
+565.2238 	EXP 	target_letter: autoDraw = False
+565.2238 	EXP 	text_cross: autoDraw = True
+565.2238 	EXP 	text_cross_space: autoDraw = True
+565.3935 	DATA 	Mouse:  Left button up, pos=(720,450)
+566.4309 	DATA 	Keypress: space
+566.4676 	EXP 	text_cross: autoDraw = False
+566.4676 	EXP 	text_cross_space: autoDraw = False
+566.4676 	EXP 	stimulus: pos = array([-0.55678255,  0.06037887])
+566.4676 	EXP 	image_scene: ori = 0.0
+566.4676 	EXP 	image_scene: image = 'raw_scenes/Bedroom_8.png'
+566.4676 	EXP 	target_letter: pos = array([-0.55678255,  0.06037887])
+566.4676 	EXP 	stimulus: autoDraw = True
+566.4676 	EXP 	image_scene: autoDraw = True
+566.4676 	EXP 	target_letter: autoDraw = True
+568.7405 	DATA 	Mouse: Left button down, pos=(216,508)
+568.7425 	EXP 	New trial (rep=0, index=28): {'TrialType': 'mirrored', 'FileName': 'Bathroom_5', 'Xcoord': -0.6380572275326534, 'Ycoord': 0.3658732872045367}
+568.7574 	EXP 	stimulus: autoDraw = False
+568.7574 	EXP 	image_scene: autoDraw = False
+568.7574 	EXP 	target_letter: autoDraw = False
+568.7574 	EXP 	text_cross: autoDraw = True
+568.7574 	EXP 	text_cross_space: autoDraw = True
+568.8094 	DATA 	Mouse:  Left button up, pos=(720,450)
+569.9754 	DATA 	Keypress: space
+570.0106 	EXP 	text_cross: autoDraw = False
+570.0106 	EXP 	text_cross_space: autoDraw = False
+570.0106 	EXP 	stimulus: pos = array([0.63805723, 0.36587329])
+570.0106 	EXP 	image_scene: ori = 0.0
+570.0106 	EXP 	image_scene: image = 'raw_scenes/Bathroom_5.png'
+570.0106 	EXP 	target_letter: pos = array([0.63805723, 0.36587329])
+570.0106 	EXP 	stimulus: autoDraw = True
+570.0106 	EXP 	image_scene: autoDraw = True
+570.0106 	EXP 	target_letter: autoDraw = True
+584.5576 	EXP 	New trial (rep=0, index=29): {'TrialType': 'new', 'FileName': 'Bedroom_6', 'Xcoord': -0.6468802521107612, 'Ycoord': 0.039322343138207816}
+584.5739 	EXP 	stimulus: autoDraw = False
+584.5739 	EXP 	image_scene: autoDraw = False
+584.5739 	EXP 	target_letter: autoDraw = False
+584.5739 	EXP 	text_cross: autoDraw = True
+584.5739 	EXP 	text_cross_space: autoDraw = True
+585.9748 	DATA 	Keypress: space
+586.0085 	EXP 	text_cross: autoDraw = False
+586.0085 	EXP 	text_cross_space: autoDraw = False
+586.0085 	EXP 	stimulus: pos = array([-0.64688025,  0.03932234])
+586.0085 	EXP 	image_scene: ori = 0.0
+586.0085 	EXP 	image_scene: image = 'raw_scenes/Bedroom_6.png'
+586.0085 	EXP 	target_letter: pos = array([-0.64688025,  0.03932234])
+586.0085 	EXP 	stimulus: autoDraw = True
+586.0085 	EXP 	image_scene: autoDraw = True
+586.0085 	EXP 	target_letter: autoDraw = True
+587.8078 	DATA 	Mouse: Left button down, pos=(138,481)
+587.8245 	EXP 	stimulus: autoDraw = False
+587.8245 	EXP 	image_scene: autoDraw = False
+587.8245 	EXP 	target_letter: autoDraw = False
+587.8245 	EXP 	debr_text: autoDraw = True
+588.0099 	DATA 	Mouse:  Left button up, pos=(138,481)
+596.7108 	DATA 	Keypress: space
+596.7249 	EXP 	debr_text: autoDraw = False
+596.7711 	EXP 	window1: mouseVisible = True
