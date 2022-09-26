@@ -47,6 +47,5 @@ raw_data <- here("data/psychopy/raw") %>%
 
 write_csv(
   x = raw_data,
-  file = here("data/psychopy/processed", "processed_data.csv"))
-
-
+  file = here("data/psychopy/processed", "composite_data.csv")
+  )
