@@ -20,7 +20,8 @@ out_2 <- raw_data %>%
   find_outliers(
     .,
     rt = "rt", sd_crit = 3,
-    id_participant, id_orientation
+    id_participant, 
+    id_orientation
   )
 
 outliers <- full_join(x = out_1, y = out_2) %>%
