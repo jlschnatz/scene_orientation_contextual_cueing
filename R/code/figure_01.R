@@ -72,7 +72,7 @@ figure_01 <-composite_cleaned_data %>%
   geom_point(
     aes(y = mean_rt, color = id_orientation),
     position = position_dodge(width = .8),
-    size = 3,
+    size = 3.5,
     show.legend = FALSE
   ) + 
   scale_color_manual(values = darken(color_hex, amount = .4)) + 
@@ -98,7 +98,8 @@ figure_01 <-composite_cleaned_data %>%
     legend.direction = "horizontal",
     legend.position = c(.5, .97),
   ) + 
-  theme(axis.title.y = element_markdown())
+  theme(axis.title.y = element_markdown(),
+        plot.margin  = margin(t = 20))
 
 print(figure_01)
 
@@ -109,3 +110,5 @@ ggsave(
   height = 5,
   bg = "white",
   )
+
+

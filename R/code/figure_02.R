@@ -80,7 +80,9 @@ figure_02 <- composite_cleaned_data %>%
   guides(color = "none") + 
   theme_scientific(base_family = "ssp") +  
   theme(axis.title.x = element_text(face = "plain")) + 
-  theme(axis.title.x = element_markdown(lineheight = 1.2))
+  theme(
+    axis.title.x = element_markdown(lineheight = 1.2),
+    plot.margin  = margin(t = 20)) 
 
 print(figure_02)
 
@@ -91,6 +93,4 @@ ggsave(
   height = 3.5,
   bg = "white",
 )
-
-
 

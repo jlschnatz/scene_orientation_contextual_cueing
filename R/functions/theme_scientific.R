@@ -86,7 +86,7 @@ theme_scientific <- function(
       ), 
     strip.text.x = element_text(
       face = "bold",
-      hjust = 0, 
+      hjust = 0.5, 
       margin = ggplot2::margin(
         b = small_size / 2,
         t = small_size / 4

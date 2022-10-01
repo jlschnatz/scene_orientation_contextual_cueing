@@ -1,0 +1,21 @@
+---
+title             : "My Title"
+#csl               : "apa.csl" 
+documentclass     : "apa7"
+classoption       : doc 
+output            : papaja::apa6_pdf
+
+header-includes:
+- \usepackage[font=sf]{caption}
+- \usepackage{floatrow}
+- \floatsetup[figure]{capposition=top}
+---
+
+```{r Example, fig.cap="Example Caption."}
+library(here)
+library(knitr)
+knitr::include_graphics(
+  path = here::here("results/figures/combined_rt_diff.pdf")
+  
+)
+```
