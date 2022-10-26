@@ -6,20 +6,15 @@ library(ungeviz)
 library(ggnewscale)
 library(colorspace)
 library(ggtext)
-showtext::showtext_auto()
-sysfonts::font_add_google("Source Sans Pro", "ssp")
 source(here("R/functions/theme_scientific.R"))
 
-#AC4431
-#EBA53E
-#51949D
-#B7A1B5
+showtext::showtext_auto()
+sysfonts::font_add_google("Source Sans Pro", "ssp")
+color_hex <- c("#E9996B", "#132083", "#9F5E9D")
 
-color_hex <- c("#AC4431", "#51949D", "#B7A1B5")
-
-composite_cleaned_data <- read_csv(here(
+composite_cleaned_data <- read_rds(here(
   "data/psychopy/processed",
-  "composite_cleaned_data.csv"
+  "composite_cleaned_data.rds"
 )) 
 
 within_participant_count <- composite_cleaned_data %>% 
@@ -41,7 +36,15 @@ within_participant_count <- composite_cleaned_data %>%
     hr_within = n_within / sum_n
     ) %>% 
   ungroup() %>% 
-  select(- c(n_within, sum_n))
+  select(- c(n_within, sum_n)) %>% 
+  filter(hit == 0) %>% 
+  select(-hit) %>% 
+  pivot_wider(names_from = id_block,
+              values_from = hr_within,
+              values_fill = 0,
+              names_prefix = "within_block_") %>% 
+  mutate(diff_within = within_block_1 - within_block_2) %>% 
+  select(-c(within_block_1, within_block_2))
 
 overall_count <- composite_cleaned_data %>% 
   select(
@@ -59,65 +62,76 @@ overall_count <- composite_cleaned_data %>%
     hr_overall = n_overall / sum_n
   ) %>% 
   ungroup() %>% 
-  select(- c(n_overall, sum_n))
-
-inner_join(
+  filter(hit == 0)  %>% 
+  select(- c(n_overall, sum_n, hit)) %>% 
+  pivot_wider(names_from = id_block,
+              values_from = hr_overall,
+              names_prefix = "overall_block_") %>% 
+  mutate(diff_overall = overall_block_1 - overall_block_2) %>% 
+  select(-c(overall_block_2, overall_block_1))
+ 
+data_hit <-  inner_join(
   within_participant_count, overall_count,
-  by = c("id_block", "id_orientation", "hit")
+  by = c( "id_orientation")
   ) %>% 
-  filter(hit == 1) %>% 
-  select(-hit) %>% 
-  group_by(id_block, id_orientation) %>% 
+  group_by(id_orientation) %>% 
   mutate(
-    se_hr = sd(hr_within)/sqrt(n()),
-    lower = hr_overall - se_hr * qnorm(0.975),
-    upper = hr_overall + se_hr * qnorm(0.975),
+    sd_hr = sd(diff_within),
+    n = n(),
+    se_hr = sd_hr / sqrt(n),
+    lower = diff_overall - se_hr * qnorm(0.975),
+    upper = diff_overall + se_hr * qnorm(0.975),
+    lower = diff_overall - sd_hr,
+    upper = diff_overall + sd_hr
   ) %>% 
-  mutate(
-    id_orientation = str_to_sentence(id_orientation),
-    id_block = factor(id_block)
-  ) %>% 
+  ungroup() %>% 
+  mutate(id_orientation = str_to_sentence(id_orientation)) %>% 
+  select(-c(sd_hr, n, se_hr))
+
+set.seed(42)
+figure_03 <- data_hit %>% 
   ggplot(aes(
-    x = id_block, 
-    y = hr_overall,
-    color = id_orientation)) + 
-  geom_point(
-    size = 3,
-    position = position_dodge(width = .6)
+    x = diff_overall, 
+    y = id_orientation,
+    color = id_orientation)
     ) +
-  geom_linerange(
-    aes(ymin = lower, ymax = upper),
-    position = position_dodge(width = .6),
-    show.legend = F
-    ) +
-  scale_color_manual(
-    name = NULL,
-    values = darken(color_hex, amount = .1)
+  geom_vline(
+    xintercept = 0, 
+    size = .25,
+    color = "black"
     ) + 
-  scale_x_discrete(
-    name = "Block",
-    breaks = c(1,2),
-    labels = c("(1) - Training", "(2) - Testing"),
-    expand = c(.3,.3)
-  ) +
-  scale_y_continuous(
-    name = "Hit Rate",
-    breaks = seq(0, 1, 0.2),
-    limits = c(0, 1),
-    expand = c(0,0)
+  geom_jitter(
+    aes(x = diff_within),
+    height = 0.3, 
+    show.legend = F,    
+    alpha = .7) + 
+  geom_errorbarh(
+    aes(xmin = lower, xmax = upper),
+    height = 0
   ) + 
-  guides(color = guide_legend(
-    override.aes = list(size = 5),
-  )) + 
-  theme_scientific() + 
+  scale_color_manual(values = color_hex) +
+  guides(color = "none") + 
+  new_scale_color() + 
+  geom_point(aes(color = id_orientation), size = 3) + 
+  scale_color_manual(values = darken(color_hex, amount = .4)) +
+  scale_x_continuous(
+    name = "**\U0394 MR**<br>(B1 - B2)",
+    limits = c(-.5, .5),
+    breaks = seq(-.5, .5, .1),
+    expand = c(0, 0)
+  ) + 
+  coord_cartesian(clip = "off") + 
+  guides(color = "none") + 
+  theme_scientific(base_family = "ssp") + 
   theme(
-    legend.position = c(0.5, 0.05),
-    legend.direction = "horizontal"
+    plot.margin = margin(t = 5, l = 10, r = 10),
+    axis.line.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.title.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    axis.title.x = element_markdown(face = "plain", lineheight = 1.2)
   )
 
-ggsave(
-  here("results/figures/hr_by_orientation_block.pdf"),
-  width = 4,
-  height = 6
-)
+print(figure_03)
+
 

@@ -11,16 +11,11 @@ showtext::showtext_auto()
 sysfonts::font_add_google("Source Sans Pro", "ssp")
 source(here("R/functions/theme_scientific.R"))
 
-#AC4431
-#EBA53E
-#51949D
-#B7A1B5
 
-color_hex <- c("#AC4431", "#51949D", "#B7A1B5")
-
-composite_cleaned_data <- read_csv(here(
+color_hex <- c("#E9996B", "#132083", "#9F5E9D")
+composite_cleaned_data <- read_rds(here(
   "data/psychopy/processed",
-  "composite_cleaned_data.csv"
+  "composite_cleaned_data.rds"
   )) 
 
 set.seed(42)
@@ -103,12 +98,6 @@ figure_01 <-composite_cleaned_data %>%
 
 print(figure_01)
 
-ggsave(
-  plot = figure_01,
-  filename = here("results/figures", "rt_by_orientation_block.pdf"),
-  width = 7,
-  height = 5,
-  bg = "white",
-  )
+
 
 

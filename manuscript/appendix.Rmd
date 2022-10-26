@@ -1,0 +1,46 @@
+
+```{=tex}
+\begin{singlespace}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+format_apatable(
+  .data = transform_table,
+  .align = "lccc",
+  .caption = "Transformation Statistics",
+  .footnote = "This is a test."
+)
+```
+\end{singlespace}
+```
+
+```{=tex}
+\begin{singlespace}
+```{r}
+.caption <- "ANOVA comparison table"
+.footnote <- "This is a test"
+format_apatable(
+  .data = anova_table,
+  .align = "lcc",
+  .caption = .caption,
+  .footnote = .footnote
+)
+```
+\end{singlespace}
+```
+
+```{=latex}
+\begin{figure}[H]
+```
+```{r, echo=FALSE, out.width="90%", fig.cap=""}
+knitr::include_graphics(here::here("results/figures/rt_transformation.pdf"))
+
+```
+```{=latex}
+\caption{Performance comparison between different transformation methods to approximate a normal distribution. \label{fig:pressure}}
+\begingroup
+\footnotesize
+\textit{Notes:} $\chi^2$ / $df$ is the Pearson normality statistic divided by its degrees of freedom. Lower values indicates better normality fit. Ordinate is displayed on a $log_2$ scale to enhance visibility.
+\endgroup
+\end{figure}
+```
+
+

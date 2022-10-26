@@ -1,3 +1,4 @@
+# packages and functions
 if (!"pacman" %in% installed.packages()) {
   install.packages("pacman")
 }
@@ -7,12 +8,11 @@ pacman::p_load(
   raster,    # image data processing
   furrr,     # parallel processing
   tidyverse, # data manipulation
-  hutilscpp, # find nearest coords of stimulus in image
   progress   # utilities for computation progress
 )
-
 source(here("R/functions/helpers.R"))
 
+# image filepaths
 image_names <- here("data/scenes/processed") %>%
   list.files() %>%
   str_remove_all(., "\\.png$")
@@ -21,16 +21,12 @@ image_files <- here("data/scenes/processed") %>%
   list.files(full.names = TRUE) %>%
   set_names(nm = image_names)
 
-plan(multisession(workers = 8))
-img_list <- future_map(
-  image_files, 
-  pivot_longer_image,
-  .progress = TRUE
-  )
+# store all images in img_list as long tibbles
+plan(multisession(workers = 6))
+img_list <- future_map(image_files, pivot_longer_image)
 
-stim_raw_list <- here(
-  "data/psychopy/processed/composite_data.rds"
-) %>%
+# get stimulus position data
+stim_raw_list <- here("data/psychopy/processed/composite_data.rds") %>%
   read_rds(.) %>%
   dplyr::select(
     id_participant, id_scene,
@@ -41,13 +37,15 @@ stim_raw_list <- here(
   group_split(id_scene) %>%
   set_names(nm = image_names)
 
+# find nearest neighbor for images pixels and stimulus data as a query
 plan(multisession(workers = 6))
 img_pos_output <- future_map2(
   .x = img_list,
   .y = stim_raw_list,
-  .f = ~nearest_neighbour_search(.x, .y)
+  .f = ~nearest_neighbour_search(.x, .y, .algorithm = "brute")
 )
 
+# store nearest neighbor values together with rgb value in tibble
 stim_proc_list <- enframe(img_pos_output, name = "id_scene") %>%
   unnest(value) %>%
   group_split(id_scene) %>%
@@ -65,21 +63,20 @@ stim_proc_list <- enframe(img_pos_output, name = "id_scene") %>%
   group_split(id_scene) %>%
   set_names(image_names)
 
+# create temporary files for the loops
 temp_x_stim <- vector("list", length(stim_proc_list))
 temp_y_stim <- vector("list", length(stim_proc_list))
 temp_image <- vector("list", length(stim_proc_list))
 
-rgb_stim <- 128 # rgb value of stimulus (T)
-
+rgb_stim <- 128 
 pb <- progress_bar$new(total = 360)
-
 for (scene in seq_len(length(stim_proc_list))) {
   for (part in 1:9) {
     pb$tick()
     temp_x_stim[[scene]][part] <- stim_proc_list[[scene]] %>%
       slice(part) %>%
       pull(x_pos_stim)
-
+    
     temp_y_stim[[scene]][part] <- stim_proc_list[[scene]] %>%
       slice(part) %>%
       pull(y_pos_stim)
@@ -91,26 +88,26 @@ for (scene in seq_len(length(stim_proc_list))) {
       ) %>%
       mutate(eucl_dist = euclidean_distance(
         .,
-        x1 = x_pos_img, y1 = y_pos_img,
-        x2 = x_pos_stim,
-        y2 = y_pos_stim
+        .x1 = x_pos_img, 
+        .y1 = y_pos_img,
+        .x2 = x_pos_stim,
+        .y2 = y_pos_stim
       )) %>%
-      filter(eucl_dist < .1) %>%
+      filter(eucl_dist < .08) %>% # kind of arbitrary ->  0.01
       summarise(
-        mab = mean(abs(value - rgb_stim))
-        ) %>% 
-      pull(mab)
+        mad = mean(abs(value - rgb_stim)) # to be discussed
+      ) %>% 
+      pull(mad)
   }
 }
 
-contrast_data <- enframe(temp_image, name = "id_scene") %>%
-  mutate(id_scene = factor(image_names)) %>%
-  unnest(value) %>%
+contrast_data <- enframe(temp_image, name = "id_scene") %>%  
+  mutate(id_scene = factor(id_scene, labels = image_names)) %>% 
   unnest(value) %>%
   group_by(id_scene) %>%
   mutate(id_participant = as.factor(1:9)) %>%
   dplyr::select(id_participant, id_scene, contrast = value) %>%
-  ungroup()
+  ungroup() 
 
 write_rds(
   contrast_data,
@@ -118,30 +115,3 @@ write_rds(
 )
 
 
-imager::load.image(image_files[5]) %>% print()
-
-imager::load.image(image_files[5]) %>% as.numeric() %>% 
-  matrix(nrow = 2848, ncol = 4272) %>% 
-  .[1:800, 1:800] %>% 
-  reshape2::melt() %>% 
-  as_tibble() %>% 
-  ggplot(aes(x = Var2, y = Var1, fill = value)) +
-  scale_fill_gradient(low = "black", high = "white") + 
-  geom_raster(show.legend = F) + 
-  theme_void()
-img <- raster::stack(image_files[5]) 
-
-mat <- matrix(raster::raster(img, 1), 
-       nrow = 2848, ncol = 4272) 
-
-mat[(2848/4):2848, (4272/4):4272] %>% 
-  reshape2::melt() %>% 
-  as_tibble() %>% 
-ggplot(aes(x = Var2, y = Var1, fill = value)) +
-  scale_fill_gradient(low = "black", high = "white") + 
-  geom_raster(show.legend = F) + 
-  theme_void()
-
-heatmap3::heatmap3(mat, useRaster = TRUE)
-
-ggsave("test.pdf", width = 3204, height = 2136, units = "px")

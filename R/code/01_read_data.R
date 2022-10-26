@@ -1,14 +1,13 @@
+# load packages and own functions
 if (!"pacman" %in% installed.packages()) {
   install.packages("pacman")
 }
-
+source(here("R/functions/helpers.R"))
 pacman::p_load(
   here,      # easy directories
   tidyverse, # data manipulation
   lubridate  # working with dates
 )
-
-source(here("R/functions/helpers.R"))
 
 raw_data <- here("data/psychopy/raw") %>%
   list.files(
@@ -52,6 +51,7 @@ raw_data <- here("data/psychopy/raw") %>%
   mutate(date = parse_date_time(date, "%Y%b%d%H%M")) %>% 
   arrange(id_participant, id_block, id_trial)
 
+# export rds file
 write_rds(
   x = raw_data,
   file = here("data/psychopy/processed", "composite_data.rds")
