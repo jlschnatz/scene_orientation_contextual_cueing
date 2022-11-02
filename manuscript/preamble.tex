@@ -1,0 +1,23 @@
+\usepackage{tabu}
+\usepackage{amsmath}
+\usepackage{setspace}
+\AtBeginEnvironment{tabular}{\singlespacing}
+\AtBeginEnvironment{lltable}{\singlespacing}
+\AtBeginEnvironment{tablenotes}{\singlespacing}
+\captionsetup[table]{font={stretch=1.5}}
+\captionsetup[figure]{font={stretch=1.5}}
+\usepackage{float} 
+\floatplacement{figure}{H} 
+\usepackage[font=sf]{caption}
+\usepackage[fontsize=11.5pt]{fontsize} 
+\newenvironment{fignote}{\begin{quote}\footnotesize}{\end{quote}}
+\setlength{\textfloatsep}{10pt plus 3pt minus 5pt}
+\usepackage{ragged2e}
+\usepackage{parskip}
+\parindent=0.5in
+\setlength{\headsep}{0pt}
+\setlength{\parskip}{0em}
+
+\usepackage{blindtext}
+
+\renewcommand*{\thepage}{\footnotesize\arabic{page}}

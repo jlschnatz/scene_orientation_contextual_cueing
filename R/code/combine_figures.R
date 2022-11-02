@@ -15,8 +15,11 @@ plot_grid(
 
 ggsave(
   filename = here("results/figures", "combined_rt_diff.pdf"),
-  width = 7,
-  height = 8,
+  width = 6,
+  height = 7,
   bg = "white",
 )
+
+
+
 

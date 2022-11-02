@@ -19,8 +19,6 @@ lme_results_full %>%
   ungroup() %>% 
   select(-c(id_scene, id_participant))
 
-
-
 table_marginal %>% 
   ggplot(aes(
     x = id_block, y = .mu, color = id_orientation)) + 
@@ -49,8 +47,8 @@ table_marginal %>%
   scale_color_manual(values = colorspace::darken(color_hex, .4)) +
   scale_y_continuous(
     name = "Marginal effect on y",
-    limits = c(0, 1.5),
-    breaks = seq(0, 1.5, 0.5),
+    limits = c(0, 6),
+    breaks = seq(0, 6),
     expand = c(0,0)
   ) +
   scale_x_discrete(
@@ -69,18 +67,3 @@ table_marginal %>%
 
 ggsave("test.pdf", width = 5, height = 5)
 
-
-test <- 
-ggeffects::ggpredict(
-  lme_results_full,
-  terms =  c("id_block", "id_orientation", "id_participant", "id_scene"),
-  type = "re"
-  )
-
-test %>% 
-  ggplot(aes(x = x, y = predicted, color = group)) + 
-  geom_point(position = position_dodge(0.6))
-
-plot(test, colors = color_hex, 
-     collapse.group = T,
-     use.theme = theme_scientific)

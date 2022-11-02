@@ -17,42 +17,37 @@ showtext::showtext_opts(dpi = 500)
 
 data_modelfit <- read_rds(here("data/model/data_modelfit.rds"))
 
-fct_level <- c(
-  "(Intercept)", "id_block2", "id_orientation2",
-  "id_orientation3", "id_block2:id_orientation2",
-  "id_block2:id_orientation3"
-)
 
-fct_label <- c(
+# reduced model 
+boot_raw_reduced <- data_modelfit %>% 
+  chuck("boot_inference", 1 , "replicates") %>% 
+  pivot_longer(cols = everything(), names_to = "term",
+               values_to = "boot_value")
+
+
+boot_conf_reduced <- data_modelfit %>% 
+  chuck("boot_tidy", 1)
+
+# generate labels for both models:
+fct_level_reduced <- boot_conf_reduced$term
+fct_label_reduced <- c(
   "<b>\U03B2<sub><i>0</i></b>",
-  "<b>\U03B2<sub><i>block</i></b>",
+  "\U03B2<sub><i>block</i>",
   "\U03B2<sub><i>orient. new</i>",
   "\U03B2<sub><i>orient. orig.</i>",
   "\U03B2<sub><i>block : orient. new</i>",
   "\U03B2<sub><i>block : orient. orig.</i>"
 )
 
-boot_raw <- data_modelfit %>% 
-  chuck("boot_inference", 1 , "replicates") %>% 
-  pivot_longer(cols = everything(), names_to = "term",
-               values_to = "boot_value")
-
-col_names <- data_modelfit %>% 
-  chuck("boot_inference", 1 , "replicates") %>% 
-  colnames()
-
-boot_conf <- data_modelfit %>% 
-  chuck("boot_tidy", 1)
-
-boot_combined <- inner_join(boot_raw, boot_conf, by = "term")
+boot_combined_reduced <- inner_join(boot_raw_reduced, boot_conf_reduced, by = "term") %>% 
+  mutate(term = factor(
+    x = term, 
+    levels = fct_level_reduced, 
+    labels = fct_label_reduced)
+  )
 
 boot_figure <- 
-boot_combined %>% 
-   mutate(term = factor(
-     x = term, 
-     levels = fct_level, 
-     labels = fct_label)
-     ) %>% 
+  boot_combined_reduced  %>% 
   ggplot(aes(x = boot_value, y = term)) + 
   geom_vline(
     xintercept = 0, 
@@ -63,9 +58,9 @@ boot_combined %>%
     rel_min_height = 0.035,
     show.legend = FALSE,
     color = NA,
+   # bandwidth = 0.01,
     position = position_nudge(y = 0.1),
- #   bandwidth = 0.00675,
-    fill = "#9F5E9D",
+    fill = "#132083",
     alpha = .85
   ) + 
   geom_errorbarh(
@@ -79,24 +74,23 @@ boot_combined %>%
     aes(x = estimate),
     show.legend = F, 
     size = 2,
-    color = "grey20") + 
+    color = "grey20"
+    ) + 
   scale_x_continuous(
     name = "Bootstrapped fixed-effect \ncoefficients",
-    limits = c(-1, 1),
-    breaks = seq(-1, 1, 0.5),
+    limits = c(-5, 5),
+    breaks = seq(-5, 5, 1),
     expand = c(0,0)
   ) + 
   scale_y_discrete(
     name = NULL,
     expand = c(0.03, 0)
   ) + 
-  theme_scientific(base_family = "ssp", base_size = 10) + 
+  theme_scientific(base_family = "ssp", base_size = 9) + 
   theme(
     axis.text.y = element_markdown(),
     axis.title.x = element_text(size = 10)
   )
-
-print(boot_figure)
 
 ggsave(
   plot = boot_figure,
@@ -105,4 +99,3 @@ ggsave(
   height = 4,
   dpi = 500,
 )
-

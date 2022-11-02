@@ -74,7 +74,7 @@ pivot_longer_image <- function(.path) {
     dplyr::mutate(across(where(is.factor), as.integer)) %>% 
     dplyr::rename(x_pos_img = Var1, y_pos_img = Var2) %>% 
     dplyr::mutate(
-      x_pos_img = normalize_iv(x_pos_img, -.8, .8),
+      x_pos_img = normalize_iv(x_pos_img, -.75, .75),
       y_pos_img = normalize_iv(y_pos_img, -.5, .5),
     ) %>% 
     dplyr::relocate(x_pos_img, .before = everything())
@@ -99,12 +99,16 @@ nearest_neighbour_search <- function(.img, .stim,
   return(out)
 }
 
-boot_resamples <- function(.model, .f, .seed, .nsim, .resample,
+boot_resamples <- function(.model, .f, .seed, .nsim, .resample = NULL, 
+                           .hccme = NULL, .aux_dist = NULL, .refit,
                            .type = c("parametric", "residual", "case", "wild", "rep")) {
   set.seed(.seed)
   out <- lmeresampler::bootstrap(
     model = .model, .f = .f, 
     type = .type,
+    .refit = .refit,
+    hccme = .hccme,
+    aux.dist = .aux_dist,
     B = .nsim,
     resample = .resample
   ) 

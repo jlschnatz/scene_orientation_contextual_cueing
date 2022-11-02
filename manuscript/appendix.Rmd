@@ -1,46 +1,127 @@
+## Study contributions
+\noindent Study design & data aquisition: Annika Böhler, Zarah Schreiner, Katharina Scholz and Jan Luca Schnatz; analysis & manuscript: Jan Luca Schnatz
 
-```{=tex}
-\begin{singlespace}
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-format_apatable(
-  .data = transform_table,
-  .align = "lccc",
-  .caption = "Transformation Statistics",
-  .footnote = "This is a test."
-)
-```
-\end{singlespace}
-```
+## FAIR data statement 
 
-```{=tex}
-\begin{singlespace}
-```{r}
-.caption <- "ANOVA comparison table"
-.footnote <- "This is a test"
-format_apatable(
-  .data = anova_table,
-  .align = "lcc",
-  .caption = .caption,
-  .footnote = .footnote
-)
-```
-\end{singlespace}
-```
+All raw data as well as analyses scripts are made available under the public MIT license for reuse via GitHub: https://github.com/jlschnatz/scene_orientation_contextual_cueing
+
+\noindent List of the main packages used for the analyses:
+
+- data manipulation: *dplyr* [@wickham_dplyr_2022], *purrr* [@henry_purrr_2022], *stringr* [@wickham_stringr_2022]
+- data modeling: *lme4* [@bates_lme4_2022], *tidymodels* [@kuhn_tidymodels_2022], *multilevelmod* [@kuhn_multilevelmod_2022], *broom.mixed* [@bolker_broommixed_2022], *lmeresampler* [@loy_bootstrapping_2021]
+- data visualization: *ggplot2* [@wickham_ggplot2_2022], *ggridges* [@wilke_ggridges_2022], *ggdist* [@kay_ggdist_2022], *gghalves* [@tiedemann_gghalves_2022], *ggtext* [@wilke_ggtext_2022]
+- reporting: *papaja* [@aust_papaja_2022], *knitr* [@xie_knitr_2022], *rmarkdown* [@allaire_rmarkdown_2022]
+
+
+
+
+\newpage
 
 ```{=latex}
 \begin{figure}[H]
 ```
-```{r, echo=FALSE, out.width="90%", fig.cap=""}
-knitr::include_graphics(here::here("results/figures/rt_transformation.pdf"))
+```{r rt diff, echo=FALSE, out.width="70%", fig.cap="", fig.align='center'}
+knitr::include_graphics(here::here("results/figures/combined_rt_diff.pdf"))
+```
+```{=latex}
+\caption{Descriptive reaction time differences between the learning and testing block for each condition (new, original and mirrored)
+\label{fig:rt-diff}}
+\begingroup
+\footnotesize
+\textit{Note:} \textbf{A}. Figure displays the density distributions for each level of the two conditions block and orientation, as well as the jittered raw data points. The pointrange indicates the mean reaction time (RT) in each condition as well as the lower and upper SEM. \textbf{B}. Figure displays the aggregated reaction time differences between block 2 and block 1 (B2 - B1) for each participant. Negative values consequently indicate, that the reaction time was lower in block 2 compared to block 1.
+\endgroup
+\end{figure}
+```
+
+
+```{=latex}
+\begin{figure}[H]
+```
+```{r marginal means, echo=FALSE, out.width="70%", fig.cap="", fig.align='center'}
+knitr::include_graphics(here::here("results/figures/marginal_means.pdf"))
+```
+```{=latex}
+\caption{Estimated marginal means of the linear mixed models for the factors block and orientation)
+\label{fig:marginal-mean}}
+\begingroup
+\footnotesize
+\textit{Note:} EMM: estimated marginal mean. Vertical linerange indicates the standard error.
+\endgroup
+\end{figure}
+```
+
+
+```{=latex}
+\begin{figure}[H]
+```
+```{r, echo=FALSE, out.width="80%", fig.cap="", fig.align='center'}
+knitr::include_graphics(here::here("results/figures/bootstrapped_weights.pdf"))
 
 ```
 ```{=latex}
-\caption{Performance comparison between different transformation methods to approximate a normal distribution. \label{fig:pressure}}
+\caption{Inference estimates for the fixed regression coefficients of the LMM using parametric bootstrapping. \label{fig:bootstrap}}
 \begingroup
 \footnotesize
-\textit{Notes:} $\chi^2$ / $df$ is the Pearson normality statistic divided by its degrees of freedom. Lower values indicates better normality fit. Ordinate is displayed on a $log_2$ scale to enhance visibility.
+\textit{Note:} Parametric bootstrap sample size was $B$ = 5000. Confidence intervals were obtained using two sided percentile bootstrapping with  $\alpha$ = 0.05.
 \endgroup
 \end{figure}
+```
+
+
+\newpage
+
+```{r, echo=FALSE}
+exploratory_stats_lmer <- model_exploratory_data %>% 
+  chuck("glance_fit_lmer", 1) %>% 
+  select(logLik, AIC, BIC, deviance) %>% 
+  mutate(across(where(is.numeric), ~round(.x, 2))) %>% 
+  rename_with(~c("L($\\\\theta$)", "$AIC$", "$BIC$", "Deviance")) %>% 
+  pivot_longer(cols = everything()) %>% 
+  mutate(combined = str_c(name, " = ", value)) %>% 
+  select(combined) %>% 
+  pull() %>% 
+  str_flatten(collapse = ", ") 
+
+exploratory_stats_glmer <- model_exploratory_data %>% 
+  chuck("glance_fit_glmer", 1) %>% 
+  select(logLik, AIC, BIC, deviance) %>% 
+  mutate(across(where(is.numeric), ~round(.x, 2))) %>% 
+  rename_with(~c("L($\\\\theta$)", "$AIC$", "$BIC$", "Deviance")) %>% 
+  pivot_longer(cols = everything()) %>% 
+  mutate(combined = str_c(name, " = ", value)) %>% 
+  select(combined) %>% 
+  pull() %>% 
+  str_flatten(collapse = ", ") 
+```
+
+\newpage
+
+## Supplementary analysis
+
+After completing the experiment, numerous participants stated they had the impression, the search task was strongly influenced by the contrast difference between the target stimulus and the background of the scene. This opened up the question of possible non-controlled merely perceptual visibility effects. To further investigate this question, we derived two perceptual aspects between the scene and the target stimulus, namely the center distance and the contrast difference. The center distance was defined as the euclidean distance between the target and the center fixation point. The contrast distance was derived as the mean absolute difference between the target stimulus RGB-value and the RGB-values from a circular window around the target of with a radius of $r$ = .08 (height units). Although the more reliable choice of the parameter $r$ should be made by simulation, this specification ensures that the nearest context around the stimulus is taken into account and should thus be able to reveal initial insights. We fitted and regular LMM and a GLMM model using ML, each with the two mentioned normalized predictors as fixed effects and participants as random effects, the former predicting the response time and the latter predicting, whether a single trial was a hit or miss (logistic mixed model). Significance was obtained using the same bootstrapping approach of the main model.
+
+As depicted in table 3 in both models the effect of the contrast was estimated to be statistically significant while the effect of the distance from the center was estimated to be statistically non-significant. The regression weight for the contrast in the GLMM model was positive ($\beta_{contrast}$ = `r model_table_exploratory[3, 2]`, $OR$ = `r exp(as.numeric(model_table_exploratory[3, 2]))`) indicating, that the increase of 1 *SD* in contrast multiplies the odds of a hit by `r exp(as.numeric(model_table_exploratory[3, 2]))`. Similarly, the negative weight for the contrast in the LMM model ($\beta_{contrast}$ = `r model_table_exploratory[3, 7]`) indicates that for every 1 *SD* increase in contrast, the response time decreases by an average of `r model_table_exploratory[3, 7]` seconds.
+
+\newpage
+
+```{=tex}
+\begin{onehalfspacing}
+```{r,message=FALSE, warning=FALSE, echo=FALSE}
+caption <- "Summary of the logistic and linear mixed model that predicted hit and response time by contrast and center distance"
+footnote <- "\\\\footnotesize{Model fit LMM: L($\\\\theta$) = -1065.46, $AIC$ = 2140.91, $BIC$ = 2161.32, Deviance = 2130.91. Model fit GLMM: L($\\\\theta$) = -239.86, $AIC$ = 487.73, $BIC$ = 504.89, Deviance = 468.33}"
+format_apatable(
+  .data = model_table_exploratory,
+  .align = c("l", rep("c", 10)),
+  .caption = caption,
+  .footnote = footnote
+) %>% 
+  add_header_above(
+  header = c(" " = 1, "GLMM: Hit/Miss" = 5, "LMM: Reaction Time" = 5),
+  italic = TRUE
+  )
+
+```
+\end{onehalfspacing}
 ```
 
 

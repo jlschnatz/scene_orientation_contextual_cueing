@@ -93,9 +93,9 @@ for (scene in seq_len(length(stim_proc_list))) {
         .x2 = x_pos_stim,
         .y2 = y_pos_stim
       )) %>%
-      filter(eucl_dist < .08) %>% # kind of arbitrary ->  0.01
+      filter(eucl_dist < .08) %>% 
       summarise(
-        mad = mean(abs(value - rgb_stim)) # to be discussed
+        mad = mean(abs(value - rgb_stim)) 
       ) %>% 
       pull(mad)
   }

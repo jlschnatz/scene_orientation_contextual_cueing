@@ -9,7 +9,7 @@ pacman::p_load(
 )
 
 data_modelfit <- read_rds(here::here("data/model/data_modelfit.rds"))
-
+model_exploratory_fit <- read_rds(here("data/model/data_exploratory_modelfit.rds"))
 
 # tables of the mixed regression model results
 
@@ -27,7 +27,7 @@ tidy_boot <- data_modelfit %>%
   mutate(signif = if_else(lower*upper < 0, "n.s.", "$\\ast$"))
 
 col_names_fit <- c(
-  "Term", "$\\hat{\\beta}$ / $\\sigma^{2}$",
+  "Term", "Estimate",
   "\\textit{SE}", "\\textit{t}", "95\\% CI", "Significance"
 )
 
@@ -158,7 +158,8 @@ inner_join(., transform_stats) %>%
     "$e^x$"
   )) %>% 
   rename_with(~col_names) %>% 
-  mutate(across(everything(), ~if_else(is.na(.x), "-", .x)))
+  mutate(across(everything(), ~if_else(is.na(.x), "-", .x))) %>% 
+  filter(Transformation != "$e^x$")
 
 write_rds(
   transform_table,
@@ -167,90 +168,115 @@ write_rds(
 
 
 
-# tables of the mixed regression model results (with contrast and center distance)
-
-tidy_fit_fuller <- data_modelfit %>% 
-  chuck("fuller_tidy", 1) %>% 
+# table of exploratory analysis of predictors contrast and center distance
+# glmer
+exploratory_summary_glmer <- model_exploratory_fit %>% 
+  chuck("tidy_fit_glmer", 1) %>% 
   select(-c(group, effect)) %>% 
-  mutate(across(where(is.numeric), .fns = ~round(.x, 3)))  %>% 
-  mutate(estimate = if_else(str_starts(term, "sd"), estimate^2, estimate))
+  mutate(estimate = if_else(str_starts(term, "sd"), estimate^2, estimate))  %>% 
+  mutate(across(estimate:statistic, .fns = ~round(.x, 3))) %>% 
+  select(-p.value)
 
-tidy_boot_fuller <- data_modelfit %>% 
-  chuck("boot_tidy_fuller", 1) %>% 
+exploratory_boot_glmer <- model_exploratory_fit %>% 
+  chuck("boot_tidy_glmer", 1) %>% 
   select(-c(type, level, estimate)) %>% 
   mutate(across(where(is.numeric), ~round(.x, 3))) %>% 
   mutate(signif = if_else(lower*upper < 0, "n.s.", "$\\ast$"))
 
-col_names_fit <- c(
+col_names_exploratory <- c(
   "Term", "$\\hat{\\beta}$ / $\\sigma^{2}$",
   "\\textit{SE}", "\\textit{t}", "95\\% CI", "Significance"
 )
 
-term_rows <- c(
-  "Intercept $\\beta_{0}$",
-  "Block $\\beta_{1}$",
-  "Orient. $\\beta_{2}$",
-  "Orient. $\\beta_{3}$",
-  "Distance $\\beta_{4}$",
-  "Contrast $\\beta_{5}$",
-  "Int. $\\beta_{4}$",
-  "Int. $\\beta_{5}$",
-  "$\\sigma^{2}_{scene}$",
-  "$\\sigma^{2}_{participant}$",
-  "$\\sigma^{2}_{\\epsilon}$"
+term_exploratory_rows_glmer <- c(
+  "$\\beta_{0}$",
+  "$\\beta_{distance}$",
+  "$\\beta_{contrast}$",
+  "$\\sigma^{2}_{subj.}$"
 )
 
-table_model_fuller <- left_join(tidy_fit_fuller, tidy_boot_fuller) %>% 
+table_model_exploratory_glmer <- left_join(
+  exploratory_summary_glmer, 
+  exploratory_boot_glmer
+  ) %>% 
   mutate(across(everything(), as.character)) %>% 
   mutate(CI = str_c("[",lower, ", ", upper, "]")) %>% 
   select(-c(lower, upper)) %>% 
   relocate(signif, .after = everything()) %>% 
-  rename_with(.fn = ~col_names_fit) %>% 
-  mutate(Term = term_rows) %>% 
+  rename_with(.fn = ~col_names_exploratory) %>% 
+  mutate(Term = term_exploratory_rows_glmer) %>% 
+  mutate(across(everything(), ~if_else(is.na(.x) , "-", .x))) %>% 
+  mutate(model = "glmer", .before = everything())
+
+
+#lmer 
+
+exploratory_summary_lmer <- model_exploratory_fit %>% 
+  chuck("tidy_fit_lmer", 1) %>% 
+  select(-c(group, effect)) %>% 
+  mutate(estimate = if_else(str_starts(term, "sd"), estimate^2, estimate))  %>% 
+  mutate(across(estimate:statistic, .fns = ~round(.x, 3))) 
+
+exploratory_boot_lmer <- model_exploratory_fit %>% 
+  chuck("boot_tidy_lmer", 1) %>% 
+  select(-c(type, level, estimate)) %>% 
+  mutate(across(where(is.numeric), ~round(.x, 3))) %>% 
+  mutate(signif = if_else(lower*upper < 0, "n.s.", "$\\ast$"))
+
+col_names_exploratory <- c(
+  "Term", "$\\hat{\\beta}$ / $\\sigma^{2}$",
+  "\\textit{SE}", "\\textit{t}", "95\\% CI", "Significance"
+)
+
+term_exploratory_rows_lmer <- c(
+  "$\\beta_{0}$",
+  "$\\beta_{distance}$",
+  "$\\beta_{contrast}$",
+  "$\\sigma^{2}_{subj.}$",
+  "$\\sigma^{2}_{\\epsilon}$"
+)
+
+table_model_exploratory_lmer <- left_join(
+  exploratory_summary_lmer, 
+  exploratory_boot_lmer
+) %>% 
+  mutate(across(everything(), as.character)) %>% 
+  mutate(CI = str_c("[",lower, ", ", upper, "]")) %>% 
+  select(-c(lower, upper)) %>% 
+  relocate(signif, .after = everything()) %>% 
+  rename_with(.fn = ~col_names_exploratory) %>% 
+  mutate(Term = term_exploratory_rows_lmer) %>% 
+  mutate(across(everything(), ~if_else(is.na(.x) , "-", .x))) %>% 
+  mutate(model = "lmer", .before = everything())
+
+
+table_model_exploratory_combined <-
+full_join(table_model_exploratory_glmer, table_model_exploratory_lmer) %>% 
+  pivot_wider(names_from = model,
+              values_from = -c(model, Term),
+              names_vary = "slowest") %>% 
+  rename_with(~c(
+    "Term",
+    "Estimate",
+    "$SE$",
+    "$z$",
+    "$CI$",
+    "Signif.",
+    "Estimate ",
+    "$SE$ ",
+    "$t$ ",
+    "$CI$ ",
+    "Signif. "
+  )) %>% 
   mutate(across(everything(), ~if_else(is.na(.x) , "-", .x))) 
 
+
 write_rds(
-  table_model_fuller,
-  here("data/table", "model_table_fuller.rds")
+  table_model_exploratory_combined,
+  here("data/table", "model_table_exploratory.rds")
 )
 
 
-# anova comparison
-
-library(tidyverse)
-read_rds("data/model/data_modelfit.rds") %>% 
-  select(full_model, fuller_model) %>% 
-  map(~pluck(., 1)) %>% 
-  set_names(nm = c("full_model", "fuller_model")) %>%
-  iwalk(~ assign(..2, ..1, envir = .GlobalEnv))
-
-anova_comp_rownames <- c(
-  "$AIC$",
-  "$BIC$",
-  "L($\\theta$)",
-  "Deviance",
-  "$t$",
-  "$df$",
-  "$p$"
-)
-
-anova_comp_colnames <- c("Measures of fit", "(1)", "(2)")
-
-table_anova_comparison <- anova(full_model, fuller_model, refit = T) %>% 
-  broom::tidy() %>% 
-  pivot_longer(cols = -term) %>% 
-  pivot_wider(names_from = term, values_from = value) %>% 
-  filter(!name == "npar") %>% 
-  mutate(fuller_model = if_else(name == "p.value", "< .001", as.character(round(fuller_model, 3)))) %>% 
-  mutate(full_model = as.character(round(full_model, 3))) %>% 
-  mutate(name = anova_comp_rownames) %>% 
-  mutate(full_model = if_else(is.na(full_model), "-", full_model)) %>% 
-  rename_with(~anova_comp_colnames)
-  
-write_rds(
-  table_anova_comparison,
-  here("data/table/anova_table.rds")
-  )
 
 
 

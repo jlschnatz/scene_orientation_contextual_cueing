@@ -1,94 +1,78 @@
 ---
-title             : "Manipulating contextual cueing in real world scenes"
-shorttitle        : "\\phantom{test}"
+title                 : "Examining contextual cueing using real-world scenes" 
+shorttitle            : "\\phantom{test}"
 
-author: 
-  - name          : "PsyBSc14 Grundlagen der Psychologie Vertiefung: Allgemeine Psycholgie I \\break Jan Luca Schnatz \\break Goethe University: Institut of Psychology \\break Supervisor: M.Sc. Aylin Kallmayer \\break Contact: s2787063@stud.uni-frankfurt.de \\break November 2nd 2022"
+author                : 
+  - name              : "PsyBSc14 Grundlagen der Psychologie Vertiefung: Allgemeine Psycholgie I \\break Jan Luca Schnatz \\break Goethe University: Institut of Psychology \\break Supervisor: M.Sc. Aylin Kallmayer \\break Contact: s2787063@stud.uni-frankfurt.de \\break November 2nd 2022"
  
-abstract: |
-  One or two sentences providing a **basic introduction** to the field,  comprehensible to a scientist in any discipline.
-  
-  Two to three sentences of **more detailed background**, comprehensible  to scientists in related disciplines.
-  
-  One sentence clearly stating the **general problem** being addressed by  this particular study.
-  
-  One sentence summarizing the main result (with the words "**here we show**" or their equivalent).
-  
-  Two or three sentences explaining what the **main result** reveals in direct comparison to what was thought to be the case previously, or how the  main result adds to previous knowledge.
-  
-  One or two sentences to put the results into a more **general context**.
-  
-  Two or three sentences to provide a **broader perspective**, readily comprehensible to a scientist in any discipline.
-  
-  <!-- https://tinyurl.com/ybremelq -->
-  
-keywords          : "keywords"
-wordcount         : "X"
+floatsintext          : yes
+linenumbers           : no
+draft                 : no
+mask                  : no
+figurelist            : no
+tablelist             : no
+footnotelist          : no
 
-bibliography      : "references.bib"
-
-floatsintext      : yes
-linenumbers       : no
-draft             : no
-mask              : no
-
-figurelist        : no
-tablelist         : no
-footnotelist      : no
-
-classoption       : "man"
-documentclass     : "apa7"
-appendix          : "appendix.Rmd"
-output            : papaja::apa6_pdf
-header-includes:
-   - |
-    \makeatletter
-    \renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
-      {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
-      {-1em}%
-      {\normalfont\normalsize\bfseries\typesectitle}}
-    \renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{1em}%
-      {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
-      {-\z@\relax}%
-      {\normalfont\normalsize\bfseries\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
-    \makeatother
-   - \usepackage{tabu}
-   - \usepackage{amsmath}
-   - \usepackage{setspace}
-   - \AtBeginEnvironment{tabular}{\singlespacing}
-   - \AtBeginEnvironment{lltable}{\singlespacing}
-   - \AtBeginEnvironment{tablenotes}{\doublespacing}
-   - \captionsetup[table]{font={stretch=1.5}}
-   - \captionsetup[figure]{font={stretch=1.5}}
-   - \usepackage{float} #use the 'float' package
-   - \floatplacement{figure}{H} #make every figure with caption = h
-   - \usepackage[font=sf]{caption}
-   - \usepackage[fontsize=11pt]{fontsize} # adjust fontsize
-   - \newenvironment{fignote}{\begin{quote}\footnotesize}{\end{quote}}
-   - \setlength{\textfloatsep}{0pt plus 1pt minus 1pt}
-   - \newcommand{\squeezeup}{\vspace{-5mm}}
-   - \usepackage{ragged2e}
+bibliography          : "tidy_references.bib"
+classoption           : "man"
+documentclass         : "apa7"
+appendix              : "appendix.Rmd"
+output                :
+  papaja::apa6_pdf    :
+    includes          :
+      in_header       : "preamble.tex"
 ---
 
 ```{r setup, echo=FALSE}
+# require packages
 if (!"pacman" %in% installed.packages()) {
   install.packages("pacman")
 }
-source(here::here("R/functions/helpers.R"))
-source(here::here("R/functions/format_apatable.R"))
 pacman::p_load(
-  here,      # easy directories
-  tidyverse, # data manipulation
+  here,      
+  tidyverse, 
   papaja,
   knitr,
   kableExtra
 )
+source(here("R/functions/helpers.R"))
+source(here("R/functions/format_apatable.R"))
 
-model_table <- read_rds(here::here("data/table/model_table.rds"))
-descriptives_table <- read_rds(here::here("data/table/descriptives_table.rds"))
-transform_table <- read_rds(here::here("data/table/transform_table.rds"))
-anova_table <- read_rds(here::here("data/table/anova_table.rds"))
+# get composite data
+composite_data <- read_rds(here(
+  "data/psychopy/processed",
+  "composite_cleaned_data.rds")
+  ) 
 
+# get model data
+model_data <- read_rds(here(
+  "data/model",
+  "data_modelfit.rds")
+  )
+
+model_exploratory_data <- read_rds(here(
+  "data/model","data_exploratory_modelfit.rds")
+  )
+
+model_table_exploratory <- read_rds(here(
+  "data/table",
+  "model_table_exploratory.rds")
+  )
+
+# get data of the tables
+model_table <- read_rds(here(
+  "data/table",
+  "model_table.rds")
+  )
+
+descriptives_table <- read_rds(here(
+  "data/table",
+  "descriptives_table.rds")
+  )
+transform_table <- read_rds(here(
+  "data/table",
+  "transform_table.rds")
+  )
 ```
 
 ```{r analysis-preferences}
@@ -97,95 +81,132 @@ set.seed(42)
 knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 ```
 
+\newpage
+
 # Introduction
 
-Humans  constantly exposed to an overloading flood of visual information  competing for our attention, yet we are able to direct our attention precisely and quickly to targets that are relevant to us. This is rooted to a significant extent (this relies heavily) in the ability to harness the oftentimes stable and structured context of a scene by perceiving the invariant spatial arrangement between different objects in the environment and  a target of interest. For example, if you search for your favourite psychology textbook in your tidy bookshelf, the book is located in a fixed location in relation to the familiar environment (i.e. the other books), you are making you of this.The use of this contextual information in an invariant structure of the visual environment results in an increased predictability of the target location (i.e. the spatial configuration of scene cues the location of the target), thus facilitating visual search [@chun_contextual_2000].
+Humans are constantly exposed to an overloading flood of visual information competing for our attention, yet we are able to direct our attention precisely and quickly to targets that are relevant to goal-oriented behavior. This is rooted to a significant extent in the ability to harness the oftentimes stable and structured context of a scene by perceiving the invariant spatial arrangement between different objects in the environment and a target of interest. For example, if you search for your favorite psychology textbook in your tidy bookshelf, the book is located in a fixed location relative to the familiar environment (i.e. the other books). The use of this contextual information in an invariant structure of the visual environment increases the predictability of the target location. To put it another way, the spatial configuration of a scene cues the location of the target, thus facilitating visual search [@chun_contextual_2000].
 
-Test citation: [@andersen_bottom-up_2012]
+These properties of the attentional system have been coined as *contextual cueing* and were initially described by @chun_contextual_1998 [see also @chun_contextual_2000; @jiang_contextual_2020 for a review]. In the homonymous paradigm [@chun_contextual_1998], participants performed a visual search task, in which a T-shaped target had to be detected amongst L-shaped distractors arrayed in either invariant (old) or variable (new) spatial configurations that were randomly intermixed within blocks. In the old context configuration, the spatial layouts of the distractors remained constant across blocks of trials, thus yielding a consistent mapping of the target location within the invariant distractor layout. Unlike the old configuration, the arrays from the new condition were randomly generated in each block, hence varying in their spatial layout throughout the experiment. Taken together, measured response times were compared between the two conditions. Participants were faster localizing the targets in the old condition relative to the new condition. Consequently, the spatial layout information that covariated with the target could foster and guide visual search. Interestingly, contextual cueing seems to be an implicit learning process, as participants could not discriminate the repeated from the new displays [@chun_contextual_1998].
 
-[@mack_object_2011]
+Since the initial development of the paradigm, there has been a great proliferation of studies, which investigated mediating factors of contextual learning [@goujon_investigating_2015]. Importantly, these studies were conducted within the confines of the original paradigm, that is, using simple stimulus arrays as distractors. So far, it has been shown that memory adaption regarding contextual learning is relatively inflexible towards *relearning* of spatial target-distractor contigencies after a permanent relocation of the target in the same context of distractors [@zellin_here_2013]. Further studies unraveled, that not a contingency change *per se* but rather the *predictability* of the change would be a crucial predictor of perpetuating the benefits of contextual cueing [@conci_contextual_2011; @manginelli_misleading_2009]. Lastly, a recent study conducted by @makovski_contextual_2010 has revealed that spatial changes of the target stimulus cannot only lead to the disappearance of contextual learning, but even the the reversal, namely *contextual cost*.
 
-guidance
+Despite the aforementioned advances concerning the mediating factors of contextual cueing, these traditional approaches lack the realism of real-world scenes because of their use of artificial stimulus arrays [@chun_scene_2003]. There is growing literature that emphasizes the importance of context in natural scenes for object recognition. Objects in real scenes can provide a rich source of information, especially expressed by the stable spatial relationship between different objects in a scene [@henderson_high-level_1999; @oliva_role_2007]. The significance of context within real-world scenes is further amplified by research that has shown  when scene-based and array-based contextual cueing are combined, scene-based contextual cueing overshadows the latter [@rosenbaum_interaction_2013].
+
+At the same time, only limited research has tried to address the inherent context-providing structure of scenes within the contextual cueing paradigm. Only a handfull of studies have specifically investigated the dynamics of contextual learning using real-world scenes. So far, there is clear evidence that contextual cueing effects also occur in real-world scenes [@brockmole_contextual_2006; @brockmole_recognition_2006; @brockmole_using_2006] but nonetheless there seem to be substantial differences compared to arrays-based contextual learning. Some of the differences include explicit memory for the repeated scenes and a much stronger effect of contextual cueing [@brockmole_using_2006; @brockmole_recognition_2006]. These apparent differences raise the question of the exact nature of information that guides attention in real-world scenes. The guiding context could be described by the high-level semantic concept of the scene or by low-level spatial arrangements between visual properties [@brockmole_recognition_2006; @henderson_high-level_1999]. To our best knowledge @brockmole_recognition_2006  were the only researchers investigating this line of research. In their study a limited sample size of 9 participants performed a visual search task using real-world scenes with simple target stimuli (T or L). In the learning phase of the experiment participants were repeatedly shown consistent target-scene mappings to form the initial association between a target and the context provided by the scene. Subsequently, in the transfer phase, the stable spatial contigencies were systematically manipulated by mirroring both scene and target while at the same time maintaining the integrity of the scene concept. To enable a baseline comparison, trials which always presented novel scenes were included. The results revealed that contextual cueing effects of the mirrored scenes were initially dampened in the transfer phase relative to the repeated scenes. However, the reduced performance measures for visual search did not fall under the levels of the new trials.
+
+The present study aims to further elucidate the nature of contextual information that guides attention in real-world scenes. For this purpose, we derived a variant of the contextual cueing paradigm, which was composed of two parts. In an inital learning block, participants were presented scenes in a visual search task, in which a target stimulus was superimposed. In the subsequent testing block, scenes were either exactly repeated (original) or were mirrored together with the target stimulus. To enable a baseline comparison, we also included novel scenes in the testing block. Following the results of @brockmole_recognition_2006, we expected greater response times differences between the learning and testing block for the spatially invariant scene-target contexts (original) compared to the mirrored scenes. Despite this, we expected that there would still be some benefit of contextual learning in the mirrored condition. This would manifest itself in a greater response time difference between the two blocks for the mirror-reversed scenes compared to the novel scenes. 
+
 \newpage
 
 # Methods
 ## Participants
-## Apparatus and stimulus material
+Nine students (7 female) aged between 22 and 30 (*M* = `r apa_num(mean(composite_data$age))`, *SD* = `r apa_num(sd(composite_data$age))`) took part in the study in the framework of an undergraduate seminar of the psychology program at Goethe University. All participants except one reported being right handed and gave their informed consent before partaking in the study. Participants were not compensated for their attendance.
 
-```{=latex}
-\begin{figure}[H]
-```
-```{r experimental design, echo=FALSE, out.width="80%",fig.cap ="", fig.align='center'}
-knitr::include_graphics(here::here("results/figures/experimental_design.pdf"))
-```
-```{=latex}
-\caption{Experimental design and procedure\label{fig:experimental-design}}
-\begingroup
-\footnotesize
-\textit{Note:} \textbf{A}. 40 scenes of the BoIS dataset (Mohr et al., 2016) were chosen as the stimulus pool for the experiment. Participants were required to search a target stimulus (T) in each presented scene. For mirrored scenes in the second block, the target stimulus was also projected along the horizontal axis.  \textbf{B}. From the initial 40 scenes, 30 scenes were randomly sampled for each participant in block 1. Subsequently, from these sampled scenes,  10 scenes were presented unmirrored (original) and mirrored respectively. To allow a baseline comparison, 10 new scenes that were not shown to the participants berfore, were included in block 2. \textbf{C}. All trial sequences started the presentation of a fixation cross and then proceeded in the aforementioned procedure. 
-\endgroup
-\end{figure}
-```
+## Apparatus and stimulus material
+Participants were tested individually under normal lighting conditions in the presence of other participants and completed the experiment on a MacBook Air (M1, 2020; Version 12.5.1) with a refresh rate of 60 Hz and a screen size of 13,3" (display resolution: 2560 $\cdot$ 1600 px). There were no requirements regarding the viewing distance to the screen, but participants were estimated to be seated about 60cm away from the screen. As a response device, the MacBook's own trackpad and keyboard was used. The experiment were programmed and carried out using the Psychopy builder [@peirce_building_2022; @peirce_psychopy2_2019, Version 2.3].
+
+We used indoor real-world scenes from a subset of the Berlin Object in Scene (BOiS) inventory developed by @mohr_boisberlin_2016. All selected images had an image resolution of 4272 $\cdot$ 2848 pixels and were converted to a b&w format to increase the search difficulty. In each presented scene, participants had to search for an unrotated T-shaped grey target stimulus (RGB: 128, 128, 128) with the size of 0.04 Psychopy height units. The placement of the stimulus in the scene was randomised, but the stimulus was presented the same number of times in each quadrant of the image to rule out arbitrary stimulus location effects.  
 
 ## Trial sequence
 
-## Design and procedure
-
-## Data analysis
-
-# Results
-## Data transformation
-## Descriptive results
-## LMM results
-## Further analysis
-\newpage
+Each trial started with the presentation of a white fixation cross on a grey background (RGB: 128, 128, 128; height: 0.1) until the participant pressed the space bar of the keyboard to proceed. This was followed by the presentation of the scene, in which the target stimulus was superimposed. Participants were instructed to search the target as quickly as possible and indicated a response by pressing the trackpad after navigating to the target stimulus. Importantly, if a participant did not find the target after a period of 15 seconds, the trial was considered as a miss and the participant proceeded to the next trial. This was done to provide a first filter for outlier reaction times. After each trial, the mouse was centered on the fixation cross to ensure a standardised mouse position and thus eliminating possible confounds. 
 
 ```{=latex}
 \begin{figure}[H]
 ```
-```{r rt diff, echo=FALSE, out.width="80%", fig.cap="", fig.align='center'}
-knitr::include_graphics(here::here("results/figures/combined_rt_diff.pdf"))
+```{r experimental design, echo=FALSE, out.width="70%",fig.cap ="", fig.align='center'}
+knitr::include_graphics(here::here("results/figures/experimental_design.pdf"))
 ```
 ```{=latex}
-\caption{Descriptive reaction time differences between the learning and testing block for each condition (new, original and mirrored)
-\label{fig:rt-diff}}
+\caption{Experimental design and procedure of the study \label{fig:experimental-design}}
 \begingroup
 \footnotesize
-\textit{Note:} \textbf{A}. Figure displays the density distributions for each level of the two conditions block and orientation, as well as the jittered raw data points. The pointrange indicates the mean reaction time (RT) in each condition as well as the lower and upper SEM. \textbf{B}. Figure displays the aggregated reaction time differences between block 2 and block 1 (B2 - B1) for each participant. Negative values consequently indicate, that the reaction time was lower in block 2 compared to block 1.
+\textit{Note:} \textbf{A}. 40 scenes of the BoIS dataset (Mohr et al., 2016) were chosen as the stimulus pool for the experiment. Participants were required to search a target stimulus (T) in each presented scene. For mirrored scenes in the second block, the target stimulus was also projected along the horizontal axis. \textbf{B}. From the initial 40 scenes, 30 scenes were randomly sampled for each participant in block 1. Subsequently, from these sampled scenes,  10 scenes were presented unmirrored (original) and mirrored respectively. To allow a baseline comparison, 10 new scenes that were not shown to the participants before, were included in block 2. \textbf{C}. All trial sequences started the presentation of a fixation cross and then continued in the aforementioned procedure.
 \endgroup
 \end{figure}
 ```
 
+## Design and procedure
+
+In order to examine the adaption of contextual learning to spatial manipulation in real-world scenes, we implemented a 2x3 within-participant factorial design with the 2-level factor block (learning, testing) and 3-level factor orientation (new, mirrored, original). Both blocks comprised 30 trials yielding 60 trials in total. In the learning block, 30 scenes from the image pool of 40 scenes were randomly drawn and presented to the participants for the first time (see figure 1a). Participants transitioned fluently without notification from the learning to the testing block. As depicted in figure 1b, the 30 trials of the testing block were subdivided into new, original and mirrored trials, each consisting of 10 trials. In the new (baseline) trials, participants were shown scenes that were not presented previously in first block. Original trial scenes in the testing block consisted of 10 previously shown scenes that were presented with the identical invariant spatial layout. On the contrary, the mirrored testing trials were comprised the 10 previously shown scenes but this time mirrored together with the target along the x-axis (see figure 1a). 
+
+Before beginning the experiment, participants were introduced to the target stimulus and were given a description of the subsequent visual search task. After this, participants completed the aforementioned two blocks with 60 trials in total. Importantly, within each block, the three conditions were presented in random order to rule out any confounding sequence effects.
+
+## Data analysis
+
+In the past decades, statistical techniques with more computational complexity such as multilevel linear mixed models (LMM) have become a prominent alternative in psychological research compared to more traditional approaches such as (repeated-measure) ANOVAs [@blanca_current_2018; @bono_report_2021; @meteyard_best_2020]. Concerning the present study, the use of the LMM offers at least two advantages over repeated-measures ANOVA. Firstly, LMM is able to elegantly account for the hierarchical nature of the non-independent data [@hox_multilevel_2017], by partioning the error variance and thus explicitly modeling the hierarchical structure [@harrison_brief_2018]. Secondly, linear mixed models can deal with missing data more easily than repeated-measure ANOVA, which in turn can severely suffer from unbalanced data [@krueger_comparison_2004; @shaw_anova_1993].
+
+Considering these advantages, we implemented a linear mixed regression model in R [@r_core_team_r_2022] within RStudio [@rstudio_team_rstudio_2022] using mainly the *lme4* package [@bates_lme4_2022]. We modeled the reaction time of the participants as the dependent variable and included fixed effects for the block and orientation factors as well their interaction. For both block and orientation, treatment contrasts were used to test the hypotheses with block 1 being the reference level for the former and the mirrored condition being the reference level for the latter. Moreover, we included the identifiers for each participant and scene as crossed random intercept effects [@baayen_mixed-effects_2008] to account for the violation of independence within the participants and to consider the scenes as random samples from larger population pool of scenes. Model results were obtained using maximum likelihood (ML) and inference of the model parameters was drawn using parametric bootstrapping with percentile confidence intervals as implemented in the package *lmeresampler* [see @loy_bootstrapping_2021]. An overview of all important packages used for the analysis is included in the appendix.
+
+# Results
+## Descriptive search performance
+
+```{r}
+hit_rate <- count(composite_data, hit, sort = T) %>% 
+  mutate(freq = round(n / sum(n), 3)) %>% 
+  pull(freq) %>% 
+  .[1]
+```
+
+The overall hit rate was `r hit_rate`. Regarding the hit rates between the different orientation conditions troughout the learning and testing block, table 1 indicates, that participants improved in performance in all 3 conditions. Concerning the descriptive response time trends, for both the baseline condition and the original condition, a decrease of reaction time was observable, indicating that the participants´ search time was faster in the second block compared to the first. However, for the mirrored condition, no decrease but instead a marginal increase in response time in block 2 was observable. Hence, visual search marginally worsened from block 1 to block 2 for mirrored scenes (see figure 2). The variances of the conditions reveal a similar pattern, in that for original and newly presented scenes, the variance decreases while for the mirrored condition, the variance increases troughout the two blocks. 
 
 ```{=tex}
-\begin{singlespace}
+\begin{onehalfspacing}
 ```{r,message=FALSE, warning=FALSE, echo=FALSE}
 caption <- "Descriptive table of the the reaction times and hit rates for each level of the two factors block and orientation"
-footnote <- "$n$: total number of hits in each condition, $M$: mean, $SD$: standard deviation."
+footnote <- "\\\\footnotesize{$n$: total number of hits in each condition, $M$: mean, $SD$: standard deviation.}"
 format_apatable(
   .data = descriptives_table,
   .align = "lcccccc",
   .caption = caption,
   .footnote = footnote
-) %>% 
+) %>%
   add_header_above(header = c(" " = 1, "Block 1" = 3, "Block 2" = 3))
 
 ```
-\end{singlespace}
+\end{onehalfspacing}
 ```
 
-```{=tex}
+## Mixed models analysis
 
-\begin{singlespace}
+```{r}
+# icc
+icc_model <- model_data %>% 
+  chuck("full_model", 1) %>% 
+  performance::icc() %>%
+  .$ICC_adjusted %>% 
+  tibble(icc = .) %>% 
+  mutate(icc = 100 * icc) %>% 
+  pull(icc) %>%  
+  papaja::apa_num(digits = 2)
+```
+```{r, echo=FALSE}
+model_fit_stats <- model_data %>% 
+  chuck("full_glance", 1) %>% 
+  select(logLik, AIC, BIC, deviance) %>% 
+  mutate(across(where(is.numeric), ~round(.x, 2))) %>% 
+  rename_with(~c("L($\\\\theta$)", "$AIC$", "$BIC$", "Deviance")) %>% 
+  pivot_longer(cols = everything()) %>% 
+  mutate(combined = str_c(name, " = ", value)) %>% 
+  select(combined) %>% 
+  pull() %>% 
+  str_flatten(collapse = ", ") 
+```
+
+The summary of the fixed and random effects of the linear mixed model is depicted in table 2 With regard to the fixed effects, the grand intercept indicates that the mean reaction time of the mirrored scenes was `r model_table[1, 2]` seconds, $SE$ = `r model_table[1, 3]`, 95% $CI$ = `r model_table[1, 5]`. Regarding the main effect of block, the model estimated response times in the second block for the mirrored scenes to increase by `r model_table[2, 2]` seconds relative to the first block ($\beta_1$ = `r model_table[2, 2]`). For both orientation contrasts the mirrored condition was estimated to deviate positively from the new scenes ($\beta_2$ = `r model_table[3, 2]`) and from the original scenes ($\beta_3$ = `r model_table[4, 2]`). Most importantly with regard to the hypotheses, both interaction contrasts suggest that the response time differences between the first and second block were greater greater for both the repeated ($\beta_4$ = `r model_table[5, 2]`) and novel ($\beta_5$ = `r model_table[6, 2]`)) scenes when compared with the mirrored scenes. This is further illustrated in figure 3, which depicts the estimated marginal means. While the reponse times for both novel and repeated trials were estimated to decrease from block 1 to block 2, the response time of the mirrored scenes did not drop. However, when considering the inference of these effects, figure 4 shows, that all mentioned regression weights except the grand mean could not be supported inferentially as the confidence intervals enclose zero. Finally, regarding the random effects we derived the ICC based of the variances, which suggests that only `r icc_model`% of the variance could be explained by both variables.
+
+```{=tex}
+\begin{onehalfspacing}
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 caption <- "Summary of the linear mixed model results for the fixed effects of block and orientation as well as crossed random effects for participant and scene"
-footnote <- "Significance was obtained using parametric bootstrapping with n = 5000 resamples. If the 95 confidence interval (CI) encompasses zero, the regression weight is statistically non-significant. Because all predictors are discrete variables, treatment contrast coding was used (baseline for factor block: block 1, reference level for factor orientation: new condition) : contrast coded regression weight of the block"
+footnote <- "\\\\footnotesize{Significance was obtained using parametric bootstrapping with $n$ = 5000 resamples. If the 95 confidence interval ($CI$) encompasses zero, the regression weight is statistically non-significant. Because all predictors are discrete variables, treatment contrast coding was used (baseline for factor block: block 1, reference level for factor orientation: mirrored condition). Model fit: $L(\\\\theta)$ = -1064.12, $AIC$ = 2146.24, $BIC$ = 2182.98, Deviance = 2128.24.}"
 format_apatable(
   .data = model_table,
   .align = "lccccc",
   .caption = caption,
   .footnote = footnote
-) %>% 
+) %>%
    pack_rows(
     "Fixed",
     start_row = 1,
@@ -197,25 +218,28 @@ pack_rows(
   start_row = 7,
   end_row = 9,
   bold = FALSE
-  ) 
+  )
 
 ```
-\end{singlespace}
+\end{onehalfspacing}
 ```
-
-```{=tex}
-\begin{equation}
-\begin{gathered}
-y_{ijk} = \gamma_{00} + v_{0k} + u_{0j} + 
-\beta_1~E_{ijk}+ \beta_2~O_{1_{ijk}}~ \beta_3~O_{2_{ijk}} + \\
-\beta_4 ~ (E_{ijk}~O_{1_{ijk}}) + \beta_5~(E_{ijk} ~O_{2_{ijk}}) +  
-\epsilon_{ijk}
-\end{gathered}
-\end{equation}
-```
-$$\epsilon_{ijk} \sim \mathcal{N}(0, \sigma^2),~~ u_{0k} \sim \mathcal{N}(0, \sigma^2_{u_{0k}}),~~ u_{0j} \sim \mathcal{N}(0, \sigma^2_{u_{0j}})$$
 
 # Discussion
+
+The present study was set out with the aim to further investigate the nature of contextual information that guides attention in real-world scenes. In doing so, we examined if and to what extent reverse-mirroring of scenes together with the target stimulus affect learning in a contextual cueing paradigm. With regard to our first hypothesis, the results revealed that there is descriptive evidence that the benefit of contextual learning is greater for the invariant repeated scenes (original) relative to mirrored scenes. This manifested itself in a stronger decrease of response time for the repeated scenes from the learning to the testing block in comparison to the mirrored scenes. However, this descriptive evidence could not be supported inferentially. Contrary to our expectations, the direction of findings was even opposite to our second hypothesis. While a decrease in response time from the learning to the testing block was observed in the novel scenes, no decrease, but instead a marginal increase in response time was observed in the mirrored condition. Yet again, this opposing trend was not statistically significant.
+
+The findings of the current study could neither replicate nor support the results of previous research [@brockmole_recognition_2006; @brockmole_using_2006]. Altough the descriptive trends of the enhanced benefit of contextual learning for repeated scenes relative to mirrored scenes were in line with these studies, we found no inferential support to confirm the hypothesis. Concerning our second hypothesis, it was found that even the descriptive trend was opposing the results of @brockmole_recognition_2006. Wheras results of this study suggested that the search performance was still superior compared to the novel scenes, the descriptive trends of the present study indicated the opposite. When considered on a purely descriptive level, the results support the notion of previous studies showing that change of spatial contingencies between the target stimulus and the distractor environment can produce contextual cost [@conci_contextual_2011; @conci_contextual_2012; @makovski_contextual_2010]. Though, these trends were only found descriptively and could not be supported inferentially. To further interprete these inconsistent findings, it is important to consider, that the present study did not find any general evidence of significant contextual learning. This might be explained by an inferior study design compared to traditional approaches, in which multiple learning blocks are typically implemented to establish the contextual cueing effect before manipulating the spatial layout [@jiang_contextual_2020]. Morover, supplementary analyses (see appendix) showed clear evidence of non-accounted influence of perceptual scene aspects like contrast on the response time performance. Lastly, the present study was limited to a very small sample size, which contributes to a very poor power in addition to the small number of blocks.
+
+With these limitations in mind, a follow-up study should incorporate several methodological considerations in addition to newly gained content suggestions. In the following section, both dimensions will be briefly discussed before a final synthesis is drawn. 
+
+As mentioned earlier, given the limited resources of the seminar, the present study used a design with only one learning block and one testing block that included the experimental manipulation. Consequently, we have implicitly assumed that after only one learning block, contextual learning effects have already been established in order to succeed in the subsequent manipulation. Altough, contextual associations between targets and scene properties emerge rapidly [@chun_scene_2003; @goujon_investigating_2015], typical recommendations advocate for at least 30 blocks for a solid learning effect before the manipulation [@jiang_contextual_2020]. Together with aquiring more participants for a follow-up experiment, following up on these recommendations would yield higher power. Building on this, it is generally also advisable to carry out a power analysis [@jiang_contextual_2020] from a pilot study. Regarding this, recent developed resources offer a feasable implementation in the framwork of mixed models [@kumle_estimating_2021]. Another important aspect that should be considered in a follow-up study stems from the results of the additional analysis. The clear evidence of the influence of contrast as a perceptual aspect of the scene on response time should encourage an attempt to control for this possible confound in a follow-up study. One possibility could be to adjust the contrast using RGB transformations that decrease the luminance difference of the image pixels. Finally and most importantly, limiting the experiment to over-simplified behavioral outcomes of visual search such as motor response times, precludes one from gaining more insightful results, that could be obtained via eye-tracking. Using eye-tracking in a follow-up study could be especially promising because of its potential ability to further characterise the complex dynamics between different contextual aspects of a scene and how these aspects interplay to guide attention.
+
+In addition to the methodological considerations, the study also raised new content-wise research questions that could be expand upon. Firstly, because of the previously mentioned methodological limitations that should be adressed in a follow-up study, it would be sensible to incorporate the same manipulation that was employed in the present study, to verify, if there is still no support for the formulated hypotheses or if this was a confound of the poor study design. As mentioned previously, this could be especially insightful in combination with the implementation of eye-tracking. If the context providing information of real-scenes would be mainly determined by its semantic aspects, it would be likely that the gaze initially shifts towards the old target position. If however, more low-level aspects of the scene like spatial object relations would guide attention, it could be expected that gaze remains unaffected as the relative spatial relationships between objects remain constant in the mirrored condition [see @brockmole_recognition_2006]. Additionally, a follow-up study could include a different variant of the mirror-reversal manipulation. Whereas in the present study, both the scene and the target stimulus were mirrored, a meaningful modification could entail the mirroring of the scene while keeping the target stimulus constant in position. Compared to the discussed overall inflexibility to *relearning* of spatial contingencies in artificial stimulus-arrays  [@conci_contextual_2011; @conci_contextual_2012; @makovski_contextual_2010; @zellin_here_2013], the ability to adapt to such changes in real scenes remains largely unknown. By implementing this manipulation, this research question could be further examined. Finally, it would be recommended to include a recognition test at the end of the experiment to examine whether the memory expliciteness that previous studies argued for [@brockmole_recognition_2006; @brockmole_using_2006] can be further supported. This could be either implemented  with a configuration recognition or a target generation task [see @jiang_contextual_2020].
+
+# Conclusion
+
+Despite the non-significant results of the present study, we seek to stimulate further investigation of contextual learning in real-world scenes by outlining considerations for future research. Most importantly, with respect to methodological aspects this should entail a larger number of learning blocks, the implementation of eye-tracking as well as aim to control for potentially confounding perceptual aspects of real-world scenes. Contentwise, we particularly emphasise the importance of examining the adapation of contextual learning to permanent spatial contingency changes in real-world scenes.
+
 
 \newpage
 
@@ -226,7 +250,7 @@ $$\epsilon_{ijk} \sim \mathcal{N}(0, \sigma^2),~~ u_{0k} \sim \mathcal{N}(0, \si
 
 \newpage
 
-# (APPENDIX) Appendix {-}
+#  Appendix 
 
 ```{r child = "appendix.Rmd"}
 ```

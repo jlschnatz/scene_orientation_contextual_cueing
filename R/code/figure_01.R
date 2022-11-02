@@ -74,7 +74,7 @@ figure_01 <-composite_cleaned_data %>%
   scale_x_discrete(
     name = "Block",
     breaks = c(1,2),
-    labels = c("(1) - Training", "(2) - Testing"),
+    labels = c("(1) - Learning", "(2) - Testing"),
     expand = c(.3,.3)
   ) +
   scale_y_continuous(

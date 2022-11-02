@@ -9,13 +9,14 @@ format_apatable <- function(.data, .align, .caption, .footnote) {
     caption = .caption
   ) %>% 
     row_spec(row = 0, align = "c") %>%
-    kable_styling(full_width = TRUE, font_size = 10) %>% 
+    kable_styling(full_width = TRUE, font_size = 10, table.envir = "float*") %>% 
     footnote(
-      general_title = "Note.",
+      general_title = "\\\\footnotesize{Note.}",
       general = .footnote,
       escape = FALSE,
       threeparttable = TRUE,
       footnote_as_chunk = TRUE
+      
     ) 
   return(out)
 }
